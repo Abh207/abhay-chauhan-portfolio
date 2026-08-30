@@ -41,3 +41,1432 @@ kbd{padding:2px 6px;border:1px solid var(--line);border-radius:5px}
   .project-filters{width:100%;overflow:auto;flex-wrap:nowrap;padding-bottom:4px}
   .project-filter{white-space:nowrap}
 }
+
+
+
+/* =========================================================
+   MODERN HERO — ABHAY CHAUHAN
+   ========================================================= */
+
+.hero-modern {
+  min-height: 100vh;
+  width: min(1160px, calc(100% - 48px));
+  margin: auto;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+
+  align-items: center;
+
+  gap: 40px;
+
+  padding-top: 110px;
+  padding-bottom: 70px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.hero-grid {
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -100px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  mask-image: radial-gradient(
+    circle,
+    black 15%,
+    transparent 70%
+  );
+
+  pointer-events: none;
+
+  opacity: .45;
+}
+
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+
+  opacity: .12;
+}
+
+
+.hero-glow-1 {
+  width: 420px;
+  height: 420px;
+
+  right: 50px;
+  top: 25%;
+
+  background: #6d4aff;
+}
+
+
+.hero-glow-2 {
+  width: 280px;
+  height: 280px;
+
+  right: 300px;
+  bottom: 0;
+
+  background: #168cff;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.hero-modern-content {
+  position: relative;
+  z-index: 5;
+
+  max-width: 650px;
+}
+
+
+/* =========================================================
+   STATUS PILL
+========================================================= */
+
+.hero-modern .hero-live-status {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 10px;
+
+  padding: 9px 15px;
+
+  margin-bottom: 32px;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.025);
+
+  backdrop-filter: blur(15px);
+
+  color: #9ba3b5;
+
+  font-size: .76rem;
+
+  letter-spacing: .01em;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.03);
+}
+
+
+.hero-modern .hero-live-status strong {
+  color: #b5bdd0;
+}
+
+
+.hero-modern .live-dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #a6ff4d;
+
+  box-shadow:
+    0 0 0 5px rgba(166,255,77,.08),
+    0 0 15px rgba(166,255,77,.5);
+
+  animation: heroPulse 1.8s ease-in-out infinite;
+}
+
+
+@keyframes heroPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: .65;
+  }
+
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.hero-eyebrow {
+  margin: 0 0 22px;
+
+  color: #8da2c8;
+
+  font-size: .72rem;
+
+  letter-spacing: .22em;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.hero-name {
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  font-size: clamp(5rem, 9vw, 8rem);
+
+  line-height: .82;
+
+  letter-spacing: -.075em;
+
+  font-weight: 850;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+
+.name-white {
+  color: #f4f6fb;
+}
+
+
+.name-gradient {
+  display: block;
+
+  background:
+    linear-gradient(
+      100deg,
+      #a6ff4d 0%,
+      #a6ff4d 12%,
+      #9fcb66 26%,
+      #8e7cff 48%,
+      #587cff 68%,
+      #16b9ff 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+
+  padding-bottom: 8px;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.hero-role {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-top: 32px;
+}
+
+
+.hero-role span {
+  color: #9ba3b5;
+
+  font-size: .82rem;
+}
+
+
+.hero-role strong {
+  color: #f4f6fb;
+
+  font-size: 1.55rem;
+
+  font-weight: 750;
+
+  letter-spacing: -.025em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.hero-description {
+  max-width: 720px;
+
+  margin: 34px 0 0;
+
+  color: #91a0bb;
+
+  font-size: 1.08rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-actions-modern {
+  display: flex;
+
+  gap: 13px;
+
+  margin-top: 32px;
+}
+
+
+.hero-btn {
+  min-height: 52px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 0 21px;
+
+  border-radius: 13px;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  font-size: .86rem;
+
+  font-weight: 750;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.hero-btn-primary {
+  color: #080a0f;
+
+  background: #f4f6fb;
+
+  border-color: #f4f6fb;
+}
+
+
+.hero-btn-primary:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 15px 35px rgba(255,255,255,.12);
+}
+
+
+.hero-btn-secondary {
+  color: #f4f6fb;
+
+  background: rgba(255,255,255,.025);
+}
+
+
+.hero-btn-secondary:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255,255,255,.06);
+
+  border-color: rgba(255,255,255,.25);
+}
+
+
+.btn-arrow {
+  font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.hero-socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+  margin-top: 28px;
+}
+
+
+.hero-socials a {
+  color: #8d98ad;
+
+  font-size: .78rem;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+
+.hero-socials a:hover {
+  color: #f4f6fb;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.hero-modern-visual {
+  min-height: 620px;
+
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+}
+
+
+/* =========================================================
+   PROFILE HALO
+========================================================= */
+
+.profile-halo {
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(108,72,255,.38) 0%,
+      rgba(72,95,255,.18) 35%,
+      rgba(20,160,255,.08) 55%,
+      transparent 72%
+    );
+
+  filter: blur(30px);
+
+  animation: haloFloat 6s ease-in-out infinite;
+}
+
+
+@keyframes haloFloat {
+
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.06) translateY(-10px);
+  }
+
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.hero-profile {
+  width: 390px;
+  height: 390px;
+
+  position: relative;
+
+  z-index: 5;
+
+  border-radius: 50%;
+
+  padding: 1px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.28),
+      rgba(120,85,255,.5),
+      rgba(42,135,255,.25)
+    );
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 35px 100px rgba(58,54,255,.25);
+}
+
+
+.hero-profile::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -2px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a6ff4d,
+      #7658ff,
+      #20aaff
+    );
+
+  opacity: .45;
+
+  filter: blur(10px);
+
+  z-index: -1;
+}
+
+
+.hero-profile img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center top;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: #d5d5d5;
+}
+
+
+/* =========================================================
+   ORBIT RINGS
+========================================================= */
+
+.orbit {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(140,125,255,.20);
+
+  pointer-events: none;
+}
+
+
+.orbit-one {
+  width: 540px;
+  height: 540px;
+
+  animation: orbitRotate 22s linear infinite;
+}
+
+
+.orbit-two {
+  width: 650px;
+  height: 650px;
+
+  border-color: rgba(90,130,255,.10);
+
+  animation:
+    orbitRotateReverse 30s linear infinite;
+}
+
+
+@keyframes orbitRotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+@keyframes orbitRotateReverse {
+
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+
+}
+
+
+/* =========================================================
+   TECHNOLOGY BADGES
+========================================================= */
+
+.tech-badge {
+  position: absolute;
+
+  z-index: 10;
+
+  min-width: 62px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 13px;
+
+  border-radius: 11px;
+
+  border: 1px solid rgba(255,255,255,.10);
+
+  background:
+    rgba(18,21,31,.72);
+
+  backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.25),
+    inset 0 1px rgba(255,255,255,.035);
+
+  color: #f4f6fb;
+
+  font-size: .68rem;
+
+  font-weight: 800;
+
+  letter-spacing: .01em;
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease;
+}
+
+
+.tech-badge:hover {
+  transform: translateY(-5px) scale(1.04);
+
+  border-color: rgba(166,255,77,.35);
+}
+
+
+/* React */
+
+.tech-react {
+  top: 13%;
+
+  right: 4%;
+
+  animation: badgeFloat1 5s ease-in-out infinite;
+}
+
+
+/* JavaScript */
+
+.tech-js {
+  left: 0%;
+
+  top: 42%;
+
+  animation: badgeFloat2 5.5s ease-in-out infinite;
+}
+
+
+/* C++ */
+
+.tech-cpp {
+  right: -1%;
+
+  bottom: 19%;
+
+  animation: badgeFloat3 5.2s ease-in-out infinite;
+}
+
+
+/* IoT */
+
+.tech-iot {
+  left: 17%;
+
+  bottom: 5%;
+
+  animation: badgeFloat4 6s ease-in-out infinite;
+}
+
+
+@keyframes badgeFloat1 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+}
+
+
+@keyframes badgeFloat2 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+}
+
+
+@keyframes badgeFloat3 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+
+}
+
+
+@keyframes badgeFloat4 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(11px);
+  }
+
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.hero-scroll {
+  position: absolute;
+
+  left: 0;
+
+  bottom: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #727d91;
+
+  font-size: .7rem;
+
+  z-index: 5;
+}
+
+
+.scroll-line {
+  width: 1px;
+
+  height: 35px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #8d98ad
+    );
+
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+
+@keyframes scrollLine {
+
+  0%,
+  100% {
+    transform: scaleY(.65);
+
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+
+    transform-origin: top;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero-modern {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    padding-top: 130px;
+
+    gap: 50px;
+  }
+
+
+  .hero-modern-content {
+    max-width: 760px;
+
+    margin: auto;
+  }
+
+
+  .hero-modern .hero-live-status {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .hero-eyebrow {
+    margin-bottom: 18px;
+  }
+
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .hero-actions-modern {
+    justify-content: center;
+  }
+
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+
+  .hero-modern-visual {
+    min-height: 560px;
+
+    margin-top: -20px;
+  }
+
+
+  .hero-scroll {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .hero-modern {
+    width: min(100% - 30px, 600px);
+
+    min-height: auto;
+
+    padding-top: 120px;
+    padding-bottom: 70px;
+
+    gap: 30px;
+  }
+
+
+  .hero-modern .hero-live-status {
+    font-size: .68rem;
+
+    padding: 8px 12px;
+  }
+
+
+  .hero-eyebrow {
+    font-size: .62rem;
+
+    letter-spacing: .15em;
+  }
+
+
+  .hero-name {
+    font-size: clamp(4rem, 17vw, 6rem);
+
+    line-height: .86;
+  }
+
+
+  .hero-role {
+    margin-top: 25px;
+  }
+
+
+  .hero-role strong {
+    font-size: 1.25rem;
+  }
+
+
+  .hero-description {
+    margin-top: 25px;
+
+    font-size: .92rem;
+
+    line-height: 1.7;
+  }
+
+
+  .hero-actions-modern {
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+  }
+
+
+  .hero-btn {
+    min-height: 48px;
+
+    padding: 0 17px;
+  }
+
+
+  .hero-socials {
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    margin-top: 23px;
+  }
+
+
+  .hero-modern-visual {
+    min-height: 420px;
+  }
+
+
+  .hero-profile {
+    width: 270px;
+    height: 270px;
+  }
+
+
+  .profile-halo {
+    width: 310px;
+    height: 310px;
+  }
+
+
+  .orbit-one {
+    width: 350px;
+    height: 350px;
+  }
+
+
+  .orbit-two {
+    width: 410px;
+    height: 410px;
+  }
+
+
+  .tech-badge {
+    height: 40px;
+
+    min-width: 54px;
+
+    font-size: .6rem;
+
+    padding: 0 10px;
+  }
+
+
+  .tech-react {
+    top: 8%;
+    right: 5%;
+  }
+
+
+  .tech-js {
+    left: 2%;
+    top: 39%;
+  }
+
+
+  .tech-cpp {
+    right: 0;
+    bottom: 18%;
+  }
+
+
+  .tech-iot {
+    left: 9%;
+    bottom: 3%;
+  }
+
+
+  .hero-grid {
+    width: 500px;
+    height: 500px;
+
+    right: -220px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .hero-modern {
+    width: calc(100% - 24px);
+
+    padding-top: 110px;
+  }
+
+
+  .hero-name {
+    font-size: clamp(3.6rem, 18vw, 5rem);
+  }
+
+
+  .hero-modern .hero-live-status {
+    max-width: 100%;
+  }
+
+
+  .hero-modern-visual {
+    min-height: 370px;
+  }
+
+
+  .hero-profile {
+    width: 235px;
+    height: 235px;
+  }
+
+
+  .profile-halo {
+    width: 270px;
+    height: 270px;
+  }
+
+
+  .orbit-one {
+    width: 305px;
+    height: 305px;
+  }
+
+
+  .orbit-two {
+    width: 355px;
+    height: 355px;
+  }
+
+
+  .tech-js {
+    left: -2%;
+  }
+
+
+  .tech-cpp {
+    right: -2%;
+  }
+
+
+  .tech-iot {
+    bottom: 0;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-modern *,
+  .hero-modern *::before,
+  .hero-modern *::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT PROFILE IMAGE CARD
+========================================================= */
+
+.profile-image-card {
+    position: relative;
+
+    width: 100%;
+    min-height: 420px;
+
+    padding: 0 !important;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(145, 255, 70, 0.08),
+            transparent 35%
+        ),
+        #0b0e14;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.profile-image-wrapper {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+
+.about-profile-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    transition:
+        transform 0.7s cubic-bezier(.2,.8,.2,1),
+        filter 0.5s ease;
+}
+
+
+/* Slight zoom on hover */
+
+.profile-image-card:hover .about-profile-image {
+    transform: scale(1.045);
+
+    filter: brightness(1.03);
+}
+
+
+/* =========================================================
+   DARK GRADIENT OVER IMAGE
+========================================================= */
+
+.profile-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(5, 8, 13, 0.02) 25%,
+            rgba(5, 8, 13, 0.12) 45%,
+            rgba(5, 8, 13, 0.82) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DECORATIVE LINES
+========================================================= */
+
+.profile-image-lines {
+    position: absolute;
+
+    top: 24px;
+    right: -20px;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    transform: rotate(-25deg);
+
+    opacity: .65;
+}
+
+
+.profile-image-lines span {
+    display: block;
+
+    width: 145px;
+
+    height: 10px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .13);
+}
+
+
+.profile-image-lines span:nth-child(2) {
+    width: 125px;
+}
+
+
+.profile-image-lines span:nth-child(3) {
+    width: 105px;
+}
+
+
+/* =========================================================
+   TEXT AT BOTTOM
+========================================================= */
+
+.profile-card-content {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 4;
+
+    padding: 32px 36px 34px;
+}
+
+
+.profile-card-content p {
+    margin: 0 0 7px;
+
+    color: #f4f6fb;
+
+    font-size: 1.05rem;
+
+    font-weight: 750;
+
+    letter-spacing: -.02em;
+}
+
+
+.profile-card-content small {
+    display: block;
+
+    color: #a1aabd;
+
+    font-size: .82rem;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TOP ACCENT LINE
+========================================================= */
+
+.profile-image-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    z-index: 10;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            #a6ff4d 25%,
+            #8b6cff 55%,
+            #27b9ff 80%,
+            transparent 100%
+        );
+
+    opacity: .8;
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.profile-image-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(166, 255, 77, .08);
+
+    filter: blur(60px);
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .profile-image-card {
+        min-height: 450px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .profile-image-card {
+        min-height: 430px;
+
+        border-radius: 22px;
+    }
+
+
+    .profile-card-content {
+        padding: 25px 25px 27px;
+    }
+
+
+    .profile-card-content p {
+        font-size: 1rem;
+    }
+
+
+    .profile-card-content small {
+        font-size: .76rem;
+    }
+
+
+    .profile-image-lines {
+        top: 20px;
+        right: -40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .profile-image-card {
+        min-height: 400px;
+    }
+
+}

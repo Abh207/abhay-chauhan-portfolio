@@ -42,50 +42,150 @@
   </header>
 
   <main>
-    <section class="hero section" id="home">
-      <div class="hero-live-status" id="heroStatus">
-        <span class="live-dot"></span>
-        <span>Open to opportunities • <b>Data Science & Development</b></span>
-      </div>
+    
+    <!-- =========================================================
+     HERO SECTION
+========================================================= -->
+<section class="hero-modern section" id="home">
 
-      <div class="profile-photo-wrap"><img class="profile-photo" src="/src/assets/images/abhay-profile.jpeg" alt="Abhay Chauhan" loading="eager"></div>
-      <div class="hero-copy reveal">
-        <!-- <p class="eyebrow"><span class="pulse"></span> Building for the web</p> -->
-        <h2>Abhay Chauhan</h2>
-        <p class="hero-text">I build responsive, interactive and user-focused web experiences with modern frontend technologies.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View My Work <span>↗</span></a>
-          <a class="btn btn-ghost" href="/src/assets/resume/resume.pdf" download>Download Resume</a>
-        </div>
-        <div class="social-row">
-          <a href="https://github.com/Abh207" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/abhay-chauhan-ab4a0937b" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="mailto:hello@example.com">Email ↗</a>
-        </div>
-        <div class="profile-metric"><strong>750+</strong><span>LinkedIn connections</span></div>
-      </div>
-      <div class="hero-visual reveal" aria-label="Abstract developer workspace illustration">
-        <div class="orb orb-a"></div><div class="orb orb-b"></div>
-        <div class="code-window glass">
-          <div class="window-bar"><span></span><span></span><span></span><small>portfolio.js</small></div>
-          <pre><code><em>const</em> developer = {
-  name: <b>"Abhay Chauhan"</b>,
-  role: <b>"Frontend Developer"</b>,
-  stack: [<b>"HTML"</b>, <b>"CSS"</b>,
-          <b>"JavaScript"</b>],
-  mindset: <b>"Keep learning"</b>
-};</code></pre>
-        </div>
-        <div class="floating-card browser-card glass">
-          <span class="mini-icon">⌘</span><div><strong>Responsive UI</strong><small>320px → 1920px+</small></div>
-        </div>
-        <div class="floating-card git-card glass">
-          <span class="mini-icon">⌘</span><div><strong>Clean commits</strong><small>Build · test · improve</small></div>
-        </div>
-        <div class="visual-grid" aria-hidden="true"></div>
-      </div>
-      <a class="scroll-cue" href="#about"><span></span> Scroll to explore</a>
-    </section>
+  <!-- Background effects -->
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-grid"></div>
+
+  <!-- LEFT CONTENT -->
+  <div class="hero-modern-content reveal">
+
+    <!-- Availability -->
+    <div class="hero-live-status">
+      <span class="live-dot"></span>
+      <span>
+        Open to opportunities •
+        <strong>Data Science & Development</strong>
+      </span>
+    </div>
+
+    <!-- Small heading -->
+    <p class="hero-eyebrow">
+      CREATIVE DEVELOPER / ENGINEER
+    </p>
+
+    <!-- Main Name -->
+    <h1 class="hero-name">
+      <span class="name-white">Abhay</span>
+      <span class="name-gradient">Chauhan</span>
+    </h1>
+
+    <!-- Current Role -->
+    <div class="hero-role">
+      <span>Currently building as</span>
+      <strong>Data Science Engineer</strong>
+    </div>
+
+    <!-- Description -->
+    <p class="hero-description">
+      I build responsive, interactive and user-focused web experiences
+      with modern frontend technologies.
+    </p>
+
+    <!-- Buttons -->
+    <div class="hero-actions-modern">
+
+      <a href="#projects" class="hero-btn hero-btn-primary">
+        <span>Explore Work</span>
+        <span class="btn-arrow">↗</span>
+      </a>
+
+      <a
+        href="/src/assets/resume/resume.pdf"
+        class="hero-btn hero-btn-secondary"
+        download
+      >
+        Resume
+      </a>
+
+    </div>
+
+    <!-- Social Links -->
+    <div class="hero-socials">
+
+      <a
+        href="https://github.com/Abh207"
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub ↗
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/abhay-chauhan-ab4a0937b"
+        target="_blank"
+        rel="noreferrer"
+      >
+        LinkedIn ↗
+      </a>
+
+      <a href="mailto:hello@example.com">
+        Email ↗
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- RIGHT VISUAL -->
+  <div class="hero-modern-visual reveal">
+
+    <!-- Large glow behind image -->
+    <div class="profile-halo"></div>
+
+    <!-- Orbit rings -->
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+
+    <!-- Profile image -->
+    <div class="hero-profile">
+
+      <img
+        src="/src/assets/images/abhay-profile.jpeg"
+        alt="Abhay Chauhan"
+        loading="eager"
+      />
+
+    </div>
+
+
+    <!-- Technology badges -->
+
+    <div class="tech-badge tech-react">
+      <span>REACT</span>
+    </div>
+
+    <div class="tech-badge tech-js">
+      <span>JS</span>
+    </div>
+
+    <div class="tech-badge tech-cpp">
+      <span>C++</span>
+    </div>
+
+    <div class="tech-badge tech-iot">
+      <span>IoT</span>
+    </div>
+
+  </div>
+
+
+  <!-- Scroll indicator -->
+  <a href="#about" class="hero-scroll">
+    <span class="scroll-line"></span>
+    <span>Scroll to explore</span>
+  </a>
+
+</section>
+
+
 
     <section class="section about" id="about">
       <div class="profile-facts reveal">
@@ -97,10 +197,38 @@
 
       <div class="section-heading reveal"><p class="eyebrow">01 — About</p><h2>Turning ideas into <span>usable interfaces.</span></h2></div>
       <div class="about-grid">
-        <div class="profile-card reveal">
-          <div class="avatar">AC</div><div class="profile-lines"><span></span><span></span><span></span></div>
-          <p>Frontend / Web Developer</p><small>Curious by default · Building by practice</small>
+        <div class="profile-card profile-image-card reveal">
+
+    <div class="profile-image-wrapper">
+
+        <img
+            src="/src/assets/images/abhay-profile.jpeg"
+            alt="Abhay Chauhan"
+            class="about-profile-image"
+            loading="lazy"
+        />
+
+        <div class="profile-image-overlay"></div>
+
+        <div class="profile-image-lines">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+
+    </div>
+
+    <div class="profile-card-content">
+
+        <p>Frontend / Web Developer</p>
+
+        <small>
+            Curious by default · Building by practice
+        </small>
+
+    </div>
+
+</div>
         <div class="about-copy reveal">
           <p class="lead">I'm a developer who enjoys turning ideas into functional, responsive and visually engaging web experiences.</p>
           <p>I focus on understanding how interfaces work, writing clean code, and continuously improving my problem-solving and development skills.</p>
@@ -196,29 +324,273 @@
       </div>
 
       <div class="education-grid">
-        <article class="education-card reveal">
-          <span class="education-year">Current</span>
-          <h3>B.Tech — Computer Science &amp; Engineering</h3>
-          <p class="education-institute">Lovely Professional University</p>
-          <div class="education-metric"><strong>8.94</strong><span>Current CGPA</span></div>
-          <p>Second-year B.Tech CSE student, developing skills across programming, web development, databases, algorithms, and data-oriented problem solving.</p>
-        </article>
+        <!-- =========================================================
+     CURRENT B.TECH — DYNAMIC EDUCATION CARD
+========================================================= -->
 
-        <article class="education-card reveal">
-          <span class="education-year">Class 12</span>
-          <h3>Senior Secondary</h3>
-          <p class="education-institute">Academic Achievement</p>
-          <div class="education-metric"><strong>95%</strong><span>Score</span></div>
-          <p>Strong academic performance in Class 12.</p>
-        </article>
+<article class="edu-modern-card reveal" id="currentEducationCard">
 
-        <article class="education-card reveal">
-          <span class="education-year">Class 10</span>
-          <h3>Secondary School</h3>
-          <p class="education-institute">Academic Achievement</p>
-          <div class="education-metric"><strong>86%</strong><span>Score</span></div>
-          <p>Completed secondary education with a solid academic record.</p>
-        </article>
+    <!-- Decorative background -->
+    <div class="edu-orb edu-orb-one"></div>
+    <div class="edu-orb edu-orb-two"></div>
+
+    <!-- Top row -->
+    <div class="edu-modern-top">
+
+        <!-- Degree icon -->
+        <div class="edu-degree-icon">
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5Z"></path>
+                <path d="M6 12.2v4.2c0 1.8 2.7 3.4 6 3.4s6-1.6 6-3.4v-4.2"></path>
+                <path d="M22 9.5v5"></path>
+            </svg>
+
+        </div>
+
+        <!-- Duration -->
+        <div class="edu-duration">
+            <span id="eduStartYear">2025</span>
+            <span class="edu-dash">—</span>
+            <span id="eduEndYear">2029</span>
+        </div>
+
+    </div>
+
+
+    <!-- Status -->
+    <div class="edu-status">
+        <span class="edu-status-dot"></span>
+        <span id="eduStatus">CURRENT</span>
+    </div>
+
+
+    <!-- Main content -->
+    <div class="edu-main-content">
+
+        <h3 id="eduDegree">
+            B.Tech — Computer Science &amp; Engineering
+        </h3>
+
+        <p
+            class="edu-university"
+            id="eduUniversity"
+        >
+            Lovely Professional University
+        </p>
+
+
+        <!-- Dynamic semester -->
+        <div class="edu-semester-row">
+
+            <span class="edu-semester-label">
+                Currently pursuing
+            </span>
+
+            <span class="edu-semester-dot">
+                •
+            </span>
+
+            <strong id="eduSemester">
+                3rd Semester
+            </strong>
+
+        </div>
+
+
+        <!-- CGPA area -->
+        <div class="edu-performance">
+
+            <div class="edu-performance-info">
+
+                <span class="edu-cgpa-label">
+                    CURRENT CGPA
+                </span>
+
+                <div class="edu-cgpa-value">
+
+                    <strong id="eduCgpa">
+                        8.94
+                    </strong>
+
+                    <span>/ 10</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Animated circular progress -->
+            <div
+                class="edu-progress"
+                id="eduProgress"
+                style="--progress: 89.4%;"
+                aria-label="Current CGPA 8.94 out of 10"
+            >
+
+                <div class="edu-progress-inner">
+
+                    <strong id="eduProgressValue">
+                        89%
+                    </strong>
+
+                    <span>
+                        SCORE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</article>
+<!-- =========================================================
+     CLASS 12
+========================================================= -->
+
+<article class="edu-school-card reveal">
+
+    <div class="edu-school-top">
+
+        <div class="edu-school-icon">
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path d="M4 5h16v14H4z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h5"></path>
+                <path d="M8 17h3"></path>
+            </svg>
+
+        </div>
+
+        <span class="edu-school-duration">
+            2022 — 2024
+        </span>
+
+    </div>
+
+
+    <span class="edu-school-status">
+        CLASS 12
+    </span>
+
+
+    <h3>
+        Senior Secondary
+    </h3>
+
+
+    <p class="edu-school-name">
+        Balaji Global Academy
+    </p>
+
+
+    <p class="edu-school-location">
+        Mainpuri, Uttar Pradesh
+    </p>
+
+
+    <div class="edu-school-result">
+
+        <span>
+            ACADEMIC SCORE
+        </span>
+
+        <div>
+            <strong>95%</strong>
+            <small>Score</small>
+        </div>
+
+    </div>
+
+
+    <p class="edu-school-description">
+        Completed senior secondary education with a strong academic
+        performance and foundation for higher studies.
+    </p>
+
+</article>
+
+
+<!-- =========================================================
+     CLASS 10
+========================================================= -->
+
+<article class="edu-school-card reveal">
+
+    <div class="edu-school-top">
+
+        <div class="edu-school-icon">
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path d="M4 5h16v14H4z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h5"></path>
+                <path d="M8 17h3"></path>
+            </svg>
+
+        </div>
+
+        <span class="edu-school-duration">
+            2021 — 2022
+        </span>
+
+    </div>
+
+
+    <span class="edu-school-status">
+        CLASS 10
+    </span>
+
+
+    <h3>
+        Secondary Education
+    </h3>
+
+
+    <p class="edu-school-name">
+        Balaji Global Academy
+    </p>
+
+
+    <p class="edu-school-location">
+        Mainpuri, Uttar Pradesh
+    </p>
+
+
+    <div class="edu-school-result">
+
+        <span>
+            ACADEMIC SCORE
+        </span>
+
+        <div>
+            <strong>86%</strong>
+            <small>Score</small>
+        </div>
+
+    </div>
+
+
+    <p class="edu-school-description">
+        Completed secondary education with a solid academic record
+        and strong foundation in core subjects.
+    </p>
+
+</article>
       </div>
 
       <div class="career-goal reveal">
@@ -425,16 +797,466 @@
 
 
 
-    <section class="section contact" id="contact">
-      <div class="contact-card reveal">
+    <!-- <section class="section contact" id="contact"> -->
+      <!-- <div class="contact-card reveal">
         <div><p class="eyebrow">08 — Contact</p><h2>Let's build something <span>together.</span></h2><p>Have an idea, project or opportunity? Send a message and let's start a conversation.</p></div>
         <form id="contactForm" novalidate>
           <div class="form-row"><label>Name<input id="name" name="name" required autocomplete="name"></label><label>Email<input id="email" name="email" type="email" required autocomplete="email"></label></div>
           <label>Message<textarea id="message" name="message" rows="5" required></textarea></label>
           <div class="form-bottom"><button class="btn btn-primary" type="submit">Send Message <span>↗</span></button><p id="formStatus" role="status"></p></div>
         </form>
-      </div>
-    </section>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="contact-header reveal" id="contact">
+
+            <span class="contact-number">
+                08 — CONTACT
+            </span>
+
+            <h2>
+                Let's Build Something
+                <span>Amazing Together</span>
+            </h2>
+
+            <p>
+                Transform your digital vision into reality with a
+                passionate developer who delivers exceptional results.
+                Ready to take your project to the next level?
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTACT GRID
+        ================================================== -->
+
+        <div class="contact-grid">
+
+
+            <!-- =================================================
+                 LEFT — FORM
+            ================================================== -->
+
+            <div class="contact-form-card reveal">
+
+                <div class="form-heading">
+
+                    <div>
+
+                        <h3>
+                            Start Your Project
+                        </h3>
+
+                        <p>
+                            Ready to bring your idea to life?
+                        </p>
+
+                    </div>
+
+                    <span class="form-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <form
+                    id="contactForm"
+                    class="contact-form"
+                    novalidate
+                >
+
+                    <!-- First + Last Name -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="firstName">
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="Abhay"
+                                autocomplete="given-name"
+                                required
+                            >
+
+                            <small class="form-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="lastName">
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Chauhan"
+                                autocomplete="family-name"
+                                required
+                            >
+
+                            <small class="form-error"></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Email + Phone -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <small class="form-error"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="+91 XXXXX XXXXX"
+                                autocomplete="tel"
+                            >
+
+                            <small class="form-error"></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Project Type -->
+
+                    <div class="form-group">
+
+                        <label for="projectType">
+                            Project Type
+                        </label>
+
+                        <select
+                            id="projectType"
+                            name="projectType"
+                            required
+                        >
+
+                            <option value="">
+                                Select project type
+                            </option>
+
+                            <option value="website">
+                                Website
+                            </option>
+
+                            <option value="web-app">
+                                Web Application
+                            </option>
+
+                            <option value="ecommerce">
+                                E-commerce
+                            </option>
+
+                            <option value="portfolio">
+                                Portfolio
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                        <small class="form-error"></small>
+
+                    </div>
+
+
+                    <!-- Message -->
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Your Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Tell me about your project..."
+                            required
+                        ></textarea>
+
+                        <small class="form-error"></small>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="contact-submit"
+                        id="contactSubmit"
+                    >
+
+                        <span>
+                            Send Project Request
+                        </span>
+
+                        <span class="submit-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <!-- Success message -->
+
+                    <div
+                        class="form-success"
+                        id="formSuccess"
+                        role="status"
+                    >
+
+                        <span class="success-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Message ready!
+                            </strong>
+
+                            <p>
+                                Your project request has been prepared
+                                successfully.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT — WHY CHOOSE ME
+            ================================================== -->
+
+            <div class="contact-benefits reveal">
+
+                <div class="benefits-heading">
+
+                    <span>
+                        WHY WORK WITH
+                    </span>
+
+                    <h3>
+                        Why Choose
+                        <strong>Me?</strong>
+                    </h3>
+
+                </div>
+
+
+                <!-- Benefit 01 -->
+
+                <article class="benefit-card">
+
+                    <div class="benefit-icon">
+                        💻
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <div class="benefit-title-row">
+
+                            <h4>
+                                Full-Stack Development
+                            </h4>
+
+                            <span class="benefit-badge">
+                                Web Development
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Building responsive and scalable web
+                            applications using modern technologies,
+                            clean architecture and reusable components.
+                        </p>
+
+                    </div>
+
+                    <span class="benefit-number">
+                        01
+                    </span>
+
+                </article>
+
+
+                <!-- Benefit 02 -->
+
+                <article class="benefit-card">
+
+                    <div class="benefit-icon">
+                        🎨
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <div class="benefit-title-row">
+
+                            <h4>
+                                UI / UX Design
+                            </h4>
+
+                            <span class="benefit-badge">
+                                User Focused
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Creating clean, intuitive and visually
+                            engaging interfaces with strong hierarchy
+                            and responsive layouts.
+                        </p>
+
+                    </div>
+
+                    <span class="benefit-number">
+                        02
+                    </span>
+
+                </article>
+
+
+                <!-- Benefit 03 -->
+
+                <article class="benefit-card">
+
+                    <div class="benefit-icon">
+                        ⚡
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <div class="benefit-title-row">
+
+                            <h4>
+                                Performance & Quality
+                            </h4>
+
+                            <span class="benefit-badge">
+                                Optimized
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Focused on performance, accessibility,
+                            maintainable code and smooth user
+                            experiences across devices.
+                        </p>
+
+                    </div>
+
+                    <span class="benefit-number">
+                        03
+                    </span>
+
+                </article>
+
+
+                <!-- Availability -->
+
+                <div class="contact-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            Currently Available
+                        </strong>
+
+                        <p>
+                            Open to internships, freelance projects
+                            and collaborations.
+                        </p>
+
+                    </div>
+
+                    <span class="status-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+    <!-- </div> -->
+
   </main>
 
   <footer>
@@ -442,6 +1264,16 @@
     <div class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a><a href="https://github.com/Abh207" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></div>
     <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
     <small>© 2026 Abhay Chauhan. Built with HTML, CSS & JavaScript.</small>
+
+    <!-- Floating Project CTA -->
+<a href="#contact" class="floating-project-btn" aria-label="Start a project">
+
+    <span class="floating-project-text">
+        Get Contact Details 
+    </span>
+    <span class="floating-project-icon">↗</span>
+
+</a>
   </footer>
 
   <dialog id="certificateModal"><div class="certificate-modal-content"><button class="modal-close" id="certificateClose" aria-label="Close certificate">×</button><img id="certificateModalImage" src="/src/assets/images/certificates/hackathon-101-arc.png" alt="Full certificate preview"></div></dialog>
@@ -451,5 +1283,9 @@
   <script type="module" src="/src/js/main.js"></script>
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 <script src="src/js/dynamic.js"></script>
+<script src="src/js/education.js"></script>
+<script
+    src="./src/js/contact.js"
+></script>
 </body>
 </html>
