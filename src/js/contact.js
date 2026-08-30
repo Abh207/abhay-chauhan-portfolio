@@ -22,10 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     if (year) {
-
         year.textContent =
             new Date().getFullYear();
-
     }
 
 
@@ -33,32 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
        VALIDATION
     ===================================================== */
 
-    function showError(
-        input,
-        message
-    ) {
+    function showError(input, message) {
 
         const group =
             input.closest(".form-group");
 
         if (!group) return;
 
-        group.classList.add(
-            "has-error"
-        );
+        group.classList.add("has-error");
 
         const error =
-            group.querySelector(
-                ".form-error"
-            );
+            group.querySelector(".form-error");
 
         if (error) {
-
-            error.textContent =
-                message;
-
+            error.textContent = message;
         }
-
     }
 
 
@@ -69,21 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!group) return;
 
-        group.classList.remove(
-            "has-error"
-        );
-
+        group.classList.remove("has-error");
     }
 
 
-    function validateRequired(
-        input,
-        message
-    ) {
+    function validateRequired(input, message) {
 
-        if (
-            !input.value.trim()
-        ) {
+        if (!input.value.trim()) {
 
             showError(
                 input,
@@ -91,15 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             return false;
-
         }
 
         clearError(input);
 
         return true;
-
     }
 
+
+    /* =====================================================
+       EMAIL VALIDATION
+    ===================================================== */
 
     function validateEmail(input) {
 
@@ -117,13 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             return false;
-
         }
 
         clearError(input);
 
         return true;
-
     }
 
 
@@ -140,18 +119,14 @@ document.addEventListener("DOMContentLoaded", () => {
             input.addEventListener(
                 "input",
                 () => {
-
                     clearError(input);
-
                 }
             );
 
             input.addEventListener(
                 "change",
                 () => {
-
                     clearError(input);
-
                 }
             );
 
@@ -159,15 +134,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       SUBMIT
+       FORM SUBMISSION
+       FORMSPREE
     ===================================================== */
 
     form?.addEventListener(
         "submit",
-        event => {
+        async event => {
 
             event.preventDefault();
 
+
+            /* =================================================
+               GET FORM ELEMENTS
+            ================================================= */
 
             const firstName =
                 document.getElementById(
@@ -195,10 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
+            /* =================================================
+               VALIDATION
+            ================================================= */
+
             let valid = true;
 
 
-            /* First name */
+            /* First Name */
 
             if (
                 !validateRequired(
@@ -206,13 +190,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Please enter your first name."
                 )
             ) {
-
                 valid = false;
-
             }
 
 
-            /* Last name */
+            /* Last Name */
 
             if (
                 !validateRequired(
@@ -220,9 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Please enter your last name."
                 )
             ) {
-
                 valid = false;
-
             }
 
 
@@ -246,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            /* Project */
+            /* Project Type */
 
             if (
                 !validateRequired(
@@ -254,9 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Please select a project type."
                 )
             ) {
-
                 valid = false;
-
             }
 
 
@@ -268,125 +246,171 @@ document.addEventListener("DOMContentLoaded", () => {
                     "Please tell me about your project."
                 )
             ) {
-
                 valid = false;
-
-            }
-
-
-            if (!valid) {
-
-                return;
-
             }
 
 
             /* =================================================
-               BUTTON ANIMATION
+               STOP IF INVALID
+            ================================================= */
+
+            if (!valid) {
+                return;
+            }
+
+
+            /* =================================================
+               BUTTON LOADING
             ================================================= */
 
             const originalHTML =
                 submitButton.innerHTML;
 
-            submitButton.disabled =
-                true;
+            submitButton.disabled = true;
 
             submitButton.innerHTML = `
-                <span>Preparing...</span>
+                <span>Sending...</span>
                 <span class="submit-arrow">✦</span>
             `;
 
 
-            /* Simulate submission */
+            /* =================================================
+               SEND DATA TO FORMSPREE
+            ================================================= */
+try {
 
-            setTimeout(() => {
+    const formData = new FormData(form);
 
-                success.classList.add(
-                    "show"
-                );
+    console.log("Submitting to:", form.action);
 
-
-                submitButton.innerHTML = `
-                    <span>Message Prepared</span>
-                    <span class="submit-arrow">✓</span>
-                `;
-
-
-                /* =================================================
-                   CREATE EMAIL
-                   Replace your email below
-                ================================================= */
-
-                const recipient =
-                    "ac804781@gmail.com";
-
-
-                const fullName =
-                    `${firstName.value.trim()}
-                     ${lastName.value.trim()}`;
-
-
-                const subject =
-                    encodeURIComponent(
-                        `New Project Inquiry — ${fullName}`
-                    );
-
-
-                const body =
-                    encodeURIComponent(
-`
-Hello Abhay,
-
-My name is ${fullName}.
-
-Email:
-${email.value.trim()}
-
-Project Type:
-${projectType.value}
-
-Phone:
-${document.getElementById("phone").value.trim() || "Not provided"}
-
-Project Details:
-${message.value.trim()}
-
-Looking forward to hearing from you.
-
-Regards,
-${fullName}
-`
-                    );
-
-
-                /*
-                 * Open user's email client.
-                 */
-
-                window.location.href =
-                    `mailto:${recipient}?subject=${subject}&body=${body}`;
-
-
-                setTimeout(() => {
-
-                    form.reset();
-
-                    submitButton.disabled =
-                        false;
-
-                    submitButton.innerHTML =
-                        originalHTML;
-
-                }, 1500);
-
-
-            }, 900);
-
+    const response = await fetch(
+        form.action,
+        {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
         }
+    );
 
+
+    /* =====================================================
+       READ FORMSPREE RESPONSE
+    ===================================================== */
+
+    const result = await response.json();
+
+    console.log("Formspree response:", result);
+
+
+    /* =====================================================
+       SUCCESS
+    ===================================================== */
+
+    if (response.ok) {
+
+        success.classList.add("show");
+
+        submitButton.innerHTML = `
+            <span>Message Sent</span>
+            <span class="submit-arrow">✓</span>
+        `;
+
+        form.reset();
+
+
+        setTimeout(() => {
+
+            success.classList.remove("show");
+
+            submitButton.disabled = false;
+
+            submitButton.innerHTML =
+                originalHTML;
+
+        }, 3000);
+
+        return;
+    }
+
+
+    /* =====================================================
+       FORMSPREE ERROR
+    ===================================================== */
+
+    console.error(
+        "Formspree rejected the submission:",
+        result
+    );
+
+
+    let errorMessage =
+        "Formspree rejected the submission.";
+
+
+    if (
+        result &&
+        result.errors &&
+        result.errors.length
+    ) {
+
+        errorMessage =
+            result.errors
+                .map(error =>
+                    `${error.field || "Form"}: ${error.message}`
+                )
+                .join("\n");
+
+    } else if (result && result.error) {
+
+        errorMessage =
+            result.error;
+
+    }
+
+
+    alert(
+        "Formspree Error:\n\n" +
+        errorMessage
+    );
+
+
+    submitButton.disabled = false;
+
+    submitButton.innerHTML = `
+        <span>Try Again</span>
+        <span class="submit-arrow">↻</span>
+    `;
+
+
+} catch (error) {
+
+    console.error(
+        "Network / JavaScript error:",
+        error
+    );
+
+
+    submitButton.disabled = false;
+
+    submitButton.innerHTML = `
+        <span>Try Again</span>
+        <span class="submit-arrow">↻</span>
+    `;
+
+
+    alert(
+        "Could not connect to Formspree.\n\n" +
+        error.message
+    );
+
+}
+        }
     );
 
 });
+
 
 
 

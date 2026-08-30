@@ -287,17 +287,155 @@
             </div>
           </div>
 
-          <div class="event-visual event-photo-gallery" aria-label="Mehfil-E-Mushaira event photos">
-            <div class="event-main-photo">
-              <img src="src/assets/events/mehfil-e-mushaira-group.jpg"
-                   alt="Mehfil-E-Mushaira university event group photograph"
-                   loading="lazy">
-            </div>
-            <div class="event-photo-grid">
-              <img src="src/assets/events/mehfil-e-mushaira-crew.jpg"
-                   alt="Mehfil-E-Mushaira crew identification badge"
-                   loading="lazy">
-            </div>
+          
+
+
+
+
+
+            <div class="event-gallery">
+
+    <!-- Featured Image -->
+    <button
+        class="gallery-featured"
+        type="button"
+        data-gallery-index="0"
+        aria-label="View event photo"
+    >
+        <img
+            src="src/assets/events/mehfil-e-mushaira-group.jpg"
+            alt="Mehfil-E-Mushaira event"
+        >
+
+        <span class="image-overlay">
+            <span class="zoom-icon">↗</span>
+            <span>View photo</span>
+        </span>
+    </button>
+
+
+    <!-- Thumbnail Gallery -->
+    <div class="gallery-thumbnails">
+
+        <button
+            class="gallery-thumb active"
+            type="button"
+            data-gallery-index="0"
+        >
+            <img
+                src="src/assets/events/Eventclub.png"
+                alt="Mehfil-E-Mushaira group"
+            >
+        </button>
+
+
+        <button
+            class="gallery-thumb"
+            type="button"
+            data-gallery-index="1"
+        >
+            <img
+                src="src/assets/events/mehfil-e-mushaira-crew.jpg"
+                alt="Mehfil-E-Mushaira crew badge"
+            >
+        </button>
+
+
+        <button
+            class="gallery-thumb"
+            type="button"
+            data-gallery-index="2"
+        >
+            <img
+                src="src/assets/events/Eventbanner.png"
+                alt="Mehfil-E-Mushaira audience"
+            >
+        </button>
+
+
+        <button
+            class="gallery-thumb"
+            type="button"
+            data-gallery-index="3"
+        >
+            <img
+                src="src/assets/events/eventpoeter.png"
+                alt="Mehfil-E-Mushaira event posters"
+            >
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE LIGHTBOX
+===================================================== -->
+
+<div
+    class="gallery-lightbox"
+    id="galleryLightbox"
+    aria-hidden="true"
+>
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        type="button"
+        aria-label="Close image viewer"
+    >
+        ×
+    </button>
+
+
+    <button
+        class="lightbox-prev"
+        id="lightboxPrev"
+        type="button"
+        aria-label="Previous image"
+    >
+        ←
+    </button>
+
+
+    <div class="lightbox-content">
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+        <div class="lightbox-info">
+
+            <span id="lightboxCounter">
+                1 / 4
+            </span>
+
+            <span id="lightboxCaption">
+                Mehfil-E-Mushaira
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="lightbox-next"
+        id="lightboxNext"
+        type="button"
+        aria-label="Next image"
+    >
+        →
+    </button>
+
+</div>
+
+
+
+
             <span>MEHFIL-E-MUSHAIRA</span>
             <small>Poetry • Culture • Community • Event Crew</small>
           </div>
@@ -884,7 +1022,8 @@
                 <form
                     id="contactForm"
                     class="contact-form"
-                    novalidate
+                    action="https://formspree.io/f/mjyvgbzz"
+                    method="POST"
                 >
 
                     <!-- First + Last Name -->
@@ -1049,6 +1188,7 @@
                     <button
                         type="submit"
                         class="contact-submit"
+                        name="button"
                         id="contactSubmit"
                     >
 
@@ -1260,10 +1400,10 @@
   </main>
 
   <footer>
-    <div><a class="brand" href="#home">Abhay<i>.</i></a><p>Frontend / Web Developer building thoughtful web experiences.</p></div>
+    <div><a class="brand" href="#home">Abhay Chauhan<i>.</i></a><p>Frontend / Web Developer building thoughtful web experiences.</p></div>
     <div class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a><a href="https://github.com/Abh207" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></div>
     <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
-    <small>© 2026 Abhay Chauhan. Built with HTML, CSS & JavaScript.</small>
+    <small>© 2026 Abhay Chauhan. Built with HTML5, Tailwind CSS , JavaScript , API & React.js.</small>
 
     <!-- Floating Project CTA -->
 <a href="#contact" class="floating-project-btn" aria-label="Start a project">
@@ -1284,6 +1424,7 @@
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 <script src="src/js/dynamic.js"></script>
 <script src="src/js/education.js"></script>
+<script src="src/js/eventImage.js"></script>
 <script
     src="./src/js/contact.js"
 ></script>

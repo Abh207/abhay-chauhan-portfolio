@@ -3307,3 +3307,781 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   EVENT GALLERY
+========================================================= */
+
+.event-gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* =========================================================
+   FEATURED IMAGE
+========================================================= */
+
+.gallery-featured {
+    position: relative;
+
+    width: 100%;
+    height: 300px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background: #10151b;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+.gallery-featured img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .7s cubic-bezier(.2,.8,.2,1),
+        filter .5s ease;
+}
+
+
+.gallery-featured:hover img {
+    transform: scale(1.06);
+
+    filter: brightness(.75);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.image-overlay {
+
+    position: absolute;
+
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 12px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(5,8,12,.65);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    font-size: .75rem;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+
+.gallery-featured:hover .image-overlay {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.zoom-icon {
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #a6ff4d;
+
+    color: #071006;
+
+    font-size: 1rem;
+
+}
+
+
+/* =========================================================
+   THUMBNAILS
+========================================================= */
+
+.gallery-thumbnails {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+
+.gallery-thumb {
+
+    position: relative;
+
+    height: 90px;
+
+    padding: 0;
+
+    border: 1px solid
+        rgba(255,255,255,.10);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #10151b;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        opacity .3s ease;
+}
+
+
+.gallery-thumb img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .5s ease;
+}
+
+
+.gallery-thumb:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(166,255,77,.5);
+}
+
+
+.gallery-thumb:hover img {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* Active thumbnail */
+
+.gallery-thumb.active {
+
+    border-color:
+        #a6ff4d;
+
+    box-shadow:
+        0 0 0 1px
+        rgba(166,255,77,.2);
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.gallery-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        rgba(3,6,10,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+.gallery-lightbox.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   LIGHTBOX CONTENT
+========================================================= */
+
+.lightbox-content {
+
+    position: relative;
+
+    width: min(1000px, 85vw);
+
+    max-height: 85vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.lightbox-content img {
+
+    max-width: 100%;
+
+    max-height: 75vh;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    border: 1px solid
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.55);
+
+    animation:
+        lightboxImageIn .35s ease;
+}
+
+
+@keyframes lightboxImageIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.94)
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   LIGHTBOX INFO
+========================================================= */
+
+.lightbox-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #9ca8ba;
+
+    font-size: .78rem;
+}
+
+
+#lightboxCounter {
+
+    color: #a6ff4d;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid
+        rgba(255,255,255,.15);
+
+    border-radius: 50%;
+
+    background:
+        rgba(15,20,27,.8);
+
+    color: white;
+
+    font-size: 1.7rem;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+}
+
+
+.lightbox-close:hover {
+
+    transform:
+        rotate(90deg);
+
+    background:
+        rgba(166,255,77,.15);
+
+    border-color:
+        rgba(166,255,77,.5);
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+========================================================= */
+
+.lightbox-prev,
+.lightbox-next {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid
+        rgba(255,255,255,.15);
+
+    border-radius: 50%;
+
+    background:
+        rgba(15,20,27,.8);
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+}
+
+
+.lightbox-prev {
+
+    left: 30px;
+}
+
+
+.lightbox-next {
+
+    right: 30px;
+}
+
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+
+    background:
+        rgba(166,255,77,.15);
+
+    border-color:
+        rgba(166,255,77,.5);
+}
+
+
+.lightbox-prev:hover {
+
+    transform:
+        translateY(-50%)
+        translateX(-3px);
+}
+
+
+.lightbox-next:hover {
+
+    transform:
+        translateY(-50%)
+        translateX(3px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .gallery-featured {
+
+        height: 240px;
+
+        border-radius: 18px;
+    }
+
+
+    .gallery-thumbnails {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .gallery-thumb {
+
+        height: 100px;
+    }
+
+
+    .gallery-lightbox {
+
+        padding: 15px;
+    }
+
+
+    .lightbox-content {
+
+        width: 100%;
+
+    }
+
+
+    .lightbox-content img {
+
+        max-height: 70vh;
+
+        border-radius: 12px;
+    }
+
+
+    .lightbox-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 44px;
+
+        height: 44px;
+    }
+
+
+    .lightbox-prev,
+    .lightbox-next {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+    .lightbox-prev {
+
+        left: 10px;
+    }
+
+
+    .lightbox-next {
+
+        right: 10px;
+    }
+
+
+    .lightbox-info {
+
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+}
+
+
+
+
+
+
+/* =========================================================
+   PROJECT TYPE SELECT
+========================================================= */
+
+#projectType {
+    width: 100%;
+    padding: 16px 18px;
+
+    background: rgba(10, 15, 20, 0.85);
+    color: #a6ff4d;
+
+    border: 1px solid rgba(166, 255, 77, 0.35);
+    border-radius: 14px;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Hover */
+
+#projectType:hover {
+    border-color: rgba(166, 255, 77, 0.7);
+
+    background:
+        rgba(16, 23, 18, 0.95);
+}
+
+
+/* Focus */
+
+#projectType:focus {
+    border-color: #a6ff4d;
+
+    box-shadow:
+        0 0 0 3px rgba(166, 255, 77, 0.08),
+        0 0 25px rgba(166, 255, 77, 0.08);
+}
+
+
+/* Options */
+
+#projectType option {
+    background: #0b1015;
+    color: #ffffff;
+    padding: 12px;
+}
+
+
+/* Selected option */
+
+#projectType option:checked {
+    background: #a6ff4d;
+    color: #071006;
+}
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   FIX CHROME AUTOFILL / WHITE INPUT BACKGROUND
+========================================================= */
+
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus,
+.contact-form input:-webkit-autofill:active,
+
+.contact-form textarea:-webkit-autofill,
+.contact-form textarea:-webkit-autofill:hover,
+.contact-form textarea:-webkit-autofill:focus,
+.contact-form textarea:-webkit-autofill:active,
+
+.contact-form select:-webkit-autofill,
+.contact-form select:-webkit-autofill:hover,
+.contact-form select:-webkit-autofill:focus,
+.contact-form select:-webkit-autofill:active {
+
+    -webkit-text-fill-color: #f5f7fa !important;
+
+    -webkit-box-shadow:
+        0 0 0 1000px #0b1016 inset !important;
+
+    box-shadow:
+        0 0 0 1000px #0b1016 inset !important;
+
+    background-color: #0b1016 !important;
+
+    border-color:
+        rgba(166, 255, 77, 0.65);
+
+    transition:
+        background-color 9999s ease-in-out 0s;
+}
+
+
+/* =========================================================
+   NORMAL INPUT STATE
+========================================================= */
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+
+    background:
+        rgba(8, 13, 18, 0.85);
+
+    color:
+        #f5f7fa;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+
+    background:
+        rgba(8, 13, 18, 0.95);
+
+    color:
+        #ffffff;
+
+    border-color:
+        rgba(166, 255, 77, 0.65);
+
+    outline:
+        none;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(166, 255, 77, 0.08),
+
+        0 0 25px
+        rgba(166, 255, 77, 0.05);
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+
+    color:
+        #68758a;
+
+    opacity:
+        1;
+}
