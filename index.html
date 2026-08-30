@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abhay Chauhan — Frontend / Web Developer building responsive, interactive and user-focused web experiences.">
+  <meta name="theme-color" content="#0b0d12">
+  <meta property="og:title" content="Abhay Chauhan — Frontend / Web Developer">
+  <meta property="og:description" content="Responsive, interactive and user-focused web experiences.">
+  <meta property="og:type" content="website">
+  <title>Abhay Chauhan — Data Science Engineer | CSE Student</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="/src/css/themes.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+<link rel="stylesheet" href="src/css/dynamic.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="command-palette" id="commandPalette">
+    <div class="command-shell">
+      <div class="command-top"><span>Quick navigation</span><button id="commandClose" aria-label="Close">×</button></div>
+      <input id="commandInput" type="search" placeholder="Search sections..." autocomplete="off">
+      <div id="commandResults" class="command-results"></div>
+      <small>Press <kbd>Esc</kbd> to close</small>
+    </div>
+  </dialog>
+
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="navbar" id="navbar">
+    <a class="brand" href="#home" aria-label="Abhay Chauhan home"><span>Abhay Chauhan</span><i></i></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+      <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#youtube">YouTube</a><a href="#cv">CV</a><a href="#certifications">Certificates</a><a href="#community">Community</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">☼</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-live-status" id="heroStatus">
+        <span class="live-dot"></span>
+        <span>Open to opportunities • <b>Data Science & Development</b></span>
+      </div>
+
+      <div class="profile-photo-wrap"><img class="profile-photo" src="/src/assets/images/abhay-profile.jpeg" alt="Abhay Chauhan" loading="eager"></div>
+      <div class="hero-copy reveal">
+        <!-- <p class="eyebrow"><span class="pulse"></span> Building for the web</p> -->
+        <h2>Abhay Chauhan</h2>
+        <p class="hero-text">I build responsive, interactive and user-focused web experiences with modern frontend technologies.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Work <span>↗</span></a>
+          <a class="btn btn-ghost" href="/src/assets/resume/resume.pdf" download>Download Resume</a>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/Abh207" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/abhay-chauhan-ab4a0937b" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="mailto:hello@example.com">Email ↗</a>
+        </div>
+        <div class="profile-metric"><strong>750+</strong><span>LinkedIn connections</span></div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Abstract developer workspace illustration">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div>
+        <div class="code-window glass">
+          <div class="window-bar"><span></span><span></span><span></span><small>portfolio.js</small></div>
+          <pre><code><em>const</em> developer = {
+  name: <b>"Abhay Chauhan"</b>,
+  role: <b>"Frontend Developer"</b>,
+  stack: [<b>"HTML"</b>, <b>"CSS"</b>,
+          <b>"JavaScript"</b>],
+  mindset: <b>"Keep learning"</b>
+};</code></pre>
+        </div>
+        <div class="floating-card browser-card glass">
+          <span class="mini-icon">⌘</span><div><strong>Responsive UI</strong><small>320px → 1920px+</small></div>
+        </div>
+        <div class="floating-card git-card glass">
+          <span class="mini-icon">⌘</span><div><strong>Clean commits</strong><small>Build · test · improve</small></div>
+        </div>
+        <div class="visual-grid" aria-hidden="true"></div>
+      </div>
+      <a class="scroll-cue" href="#about"><span></span> Scroll to explore</a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="profile-facts reveal">
+        <span>📍 Agra, Uttar Pradesh</span>
+        <span>🎓 2nd Year B.Tech CSE</span>
+        <span>📊 Aspiring Data Science Engineer</span>
+        <span>📈 8.94 CGPA</span>
+      </div>
+
+      <div class="section-heading reveal"><p class="eyebrow">01 — About</p><h2>Turning ideas into <span>usable interfaces.</span></h2></div>
+      <div class="about-grid">
+        <div class="profile-card reveal">
+          <div class="avatar">AC</div><div class="profile-lines"><span></span><span></span><span></span></div>
+          <p>Frontend / Web Developer</p><small>Curious by default · Building by practice</small>
+        </div>
+        <div class="about-copy reveal">
+          <p class="lead">I'm a developer who enjoys turning ideas into functional, responsive and visually engaging web experiences.</p>
+          <p>I focus on understanding how interfaces work, writing clean code, and continuously improving my problem-solving and development skills.</p>
+          <div class="info-grid">
+            <div><b>01</b><strong>Frontend</strong><span>Semantic, responsive interfaces</span></div>
+            <div><b>02</b><strong>UI / UX</strong><span>Clear hierarchy and usability</span></div>
+            <div><b>03</b><strong>JavaScript</strong><span>Interactive browser experiences</span></div>
+            <div><b>04</b><strong>Problem Solving</strong><span>DSA and algorithmic thinking</span></div>
+          </div>
+          <div class="about-social-proof">
+            <span><strong>750+</strong> LinkedIn connections</span>
+            <a href="https://www.linkedin.com/in/abhay-chauhan-ab4a0937b" target="_blank" rel="noreferrer">View LinkedIn profile ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading reveal"><p class="eyebrow">02 — Skills</p><h2>Tools I use to <span>build.</span></h2><p>Focused on fundamentals, practical projects and continuous improvement.</p></div>
+      <div class="skills-layout">
+        <div class="skill-categories" id="skillCategories"></div>
+      </div>
+    </section>
+
+      <section id="events" class="section">
+        <div class="section-heading">
+          <span class="eyebrow">Leadership & Events</span>
+          <h2>University Event <span>Organiser</span></h2>
+          <p>Creating meaningful campus experiences through coordination, teamwork and student engagement.</p>
+        </div>
+
+        <article class="event-feature-card">
+          <div class="event-content">
+            <span class="event-badge">Lovely Professional University • Student Career Committee</span>
+            <h3>Mehfil-E-Mushaira</h3>
+            <p>
+              Organised and supported the university's Mehfil-E-Mushaira, a cultural and literary
+              event organised by the Student Career Committee (SCC) at Lovely Professional University.
+              The event brought together talented poets and created a platform for sharing poetry,
+              creativity and meaningful expression.
+            </p>
+
+            <div class="event-highlights">
+              <div>
+                <strong>Event Role</strong>
+                <span>University Event Organiser</span>
+              </div>
+              <div>
+                <strong>Organisation</strong>
+                <span>Student Career Committee (SCC)</span>
+              </div>
+              <div>
+                <strong>Focus</strong>
+                <span>Event Coordination • Teamwork • Leadership</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-visual event-photo-gallery" aria-label="Mehfil-E-Mushaira event photos">
+            <div class="event-main-photo">
+              <img src="src/assets/events/mehfil-e-mushaira-group.jpg"
+                   alt="Mehfil-E-Mushaira university event group photograph"
+                   loading="lazy">
+            </div>
+            <div class="event-photo-grid">
+              <img src="src/assets/events/mehfil-e-mushaira-crew.jpg"
+                   alt="Mehfil-E-Mushaira crew identification badge"
+                   loading="lazy">
+            </div>
+            <span>MEHFIL-E-MUSHAIRA</span>
+            <small>Poetry • Culture • Community • Event Crew</small>
+          </div>
+        </article>
+      </section>
+
+
+
+    <section class="section projects-section" id="projects">
+      <div class="section-heading reveal"><p class="eyebrow">03 — Selected work</p><h2>Projects that turn <span>practice into product.</span></h2><p>Real work, honest scope, and room to keep improving.</p></div>
+      <div class="project-toolbar reveal">
+        <div class="filters" id="projectFilters"></div>
+        <label class="search"><span>⌕</span><input id="projectSearch" type="search" placeholder="Search projects..." aria-label="Search projects"></label>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+
+    <section class="section education-section" id="education">
+      <div class="section-heading reveal">
+        <p class="eyebrow">05 — Education</p>
+        <h2>Academic journey &amp; <span>goals.</span></h2>
+        <p>Currently building a strong foundation in computer science while preparing for a career in data science and engineering.</p>
+      </div>
+
+      <div class="education-grid">
+        <article class="education-card reveal">
+          <span class="education-year">Current</span>
+          <h3>B.Tech — Computer Science &amp; Engineering</h3>
+          <p class="education-institute">Lovely Professional University</p>
+          <div class="education-metric"><strong>8.94</strong><span>Current CGPA</span></div>
+          <p>Second-year B.Tech CSE student, developing skills across programming, web development, databases, algorithms, and data-oriented problem solving.</p>
+        </article>
+
+        <article class="education-card reveal">
+          <span class="education-year">Class 12</span>
+          <h3>Senior Secondary</h3>
+          <p class="education-institute">Academic Achievement</p>
+          <div class="education-metric"><strong>95%</strong><span>Score</span></div>
+          <p>Strong academic performance in Class 12.</p>
+        </article>
+
+        <article class="education-card reveal">
+          <span class="education-year">Class 10</span>
+          <h3>Secondary School</h3>
+          <p class="education-institute">Academic Achievement</p>
+          <div class="education-metric"><strong>86%</strong><span>Score</span></div>
+          <p>Completed secondary education with a solid academic record.</p>
+        </article>
+      </div>
+
+      <div class="career-goal reveal">
+        <span class="career-goal-label">Career Goal</span>
+        <h3>Data Science Engineer</h3>
+        <p>My goal is to combine programming, data structures, databases, statistics, and machine learning to build practical, data-driven solutions.</p>
+      </div>
+    </section>
+
+    <section class="section coding" id="coding">
+      <div class="section-heading reveal"><p class="eyebrow">04 — Coding</p><h2>A developer mindset beyond <span>the UI.</span></h2><p>Consistent problem solving across competitive programming and DSA practice platforms.</p></div>
+      <div class="coding-panel glass reveal">
+        <div><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
+        <div class="terminal-body">
+          <p><span class="prompt">abhay@dev:~$</span> focus --areas</p>
+          <div class="terminal-tags"><span>Data Structures</span><span>Algorithms</span><span>C++</span><span>Binary Search</span><span>Recursion</span><span>Arrays</span><span>Strings</span><span>Complexity Analysis</span></div>
+          <p class="muted">// Solve clearly. Understand deeply. Improve continuously.</p>
+        </div>
+      </div>
+
+      <div class="coding-profile-link"><a href="https://leetcode.com/u/Abhay_Chauhan07/" target="_blank" rel="noopener noreferrer">View LeetCode Profile ↗</a></div>
+      <div class="gfg-profile-link"><a href="https://www.geeksforgeeks.org/profile/abhaychauhan790" target="_blank" rel="noopener noreferrer">View GeeksforGeeks Profile ↗</a></div>
+      <div class="coding-achievements">
+      <article class="coding-stat reveal github-achievement">
+        <span class="coding-stat-number">50+</span>
+        <span class="coding-stat-title">GitHub Contributions</span>
+        <span class="coding-stat-copy">Contributions in 2026.</span>
+        <a class="coding-stat-link" href="https://github.com/Abh207" target="_blank" rel="noopener noreferrer">View GitHub Profile ↗</a>
+      </article>
+
+        <article class="coding-stat reveal">
+          <span class="coding-stat-number">3★</span>
+          <span class="coding-stat-title">HackerRank</span>
+          <span class="coding-stat-copy">Earned 3 stars in C++.</span>
+        </article>
+        <article class="coding-stat reveal">
+          <span class="coding-stat-number">50+</span>
+          <span class="coding-stat-title">LeetCode</span>
+          <span class="coding-stat-copy">Problems solved across DSA practice.</span>
+        </article>
+        <article class="coding-stat reveal">
+          <span class="coding-stat-number">150+</span>
+          <span class="coding-stat-title">GeeksforGeeks</span>
+          <span class="coding-stat-copy">C++ and DSA problems solved.</span>
+        </article>
+      </div>
+
+      <div class="coding-proof reveal">
+        <div class="coding-proof-copy">
+          <p class="certificate-type">Coding Milestone</p>
+          <h3>HackerRank — 3 Star in C++</h3>
+          <p>The uploaded screenshot documents the 3rd-star milestone achieved while practicing C++ problems.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">HackerRank</span><span class="tag">Problem Solving</span><span class="tag">3 Stars</span></div>
+        </div>
+        <div class="coding-proof-image">
+          <img src="/src/assets/images/coding/hackerrank-3-star-cpp.jpg" alt="HackerRank congratulations screen showing Abhay earned a 3rd star in C++" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section community" id="community">
+      <div class="section-heading reveal"><p class="eyebrow">05 — Community Development</p><h2>Learning through <span>community action.</span></h2><p>Volunteer experience with Sharda Foundation focused on structured community development and environmental participation.</p></div>
+      <div class="community-card reveal">
+        <div class="community-copy">
+          <p class="certificate-type">Volunteer Program · Sharda Foundation</p>
+          <h3>Community Development &amp; Volunteer Program</h3>
+          <p>Completed a 30-day, 75-hour structured-hours basic volunteer program based on the OABC-HVCO model, from 15 June 2026 to 25 July 2026, with excellence.</p>
+          <p>The uploaded activity photos document participation in tree-planting and environmental volunteering activities.</p>
+          <div class="tags"><span class="tag">30 Days</span><span class="tag">75 Hours</span><span class="tag">Volunteering</span><span class="tag">Community Development</span><span class="tag">Environment</span></div>
+          <button class="certificate-view community-certificate-view" type="button" data-certificate="/src/assets/images/certificates/sharda-foundation-community-development-certificate.jpeg">View Certificate ↗</button>
+        </div>
+        <div class="community-media">
+          <img src="/src/assets/images/volunteering/sharda-foundation/sharda-tree-planting-1.jpg" alt="Abhay Chauhan participating in a tree planting activity" loading="lazy">
+          <img src="/src/assets/images/volunteering/sharda-foundation/sharda-tree-planting-2.jpg" alt="Tree planting activity during Sharda Foundation volunteer program" loading="lazy">
+          <img src="/src/assets/images/volunteering/sharda-foundation/sharda-tree-planting-3.jpg" alt="Environmental volunteering and tree planting activity" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section certifications" id="certifications">
+      <div class="section-heading reveal">
+        <p class="eyebrow">04 — Certifications & Participation</p>
+        <h2>Milestones beyond <span>the code.</span></h2>
+        <p>Events and learning experiences that have contributed to my development journey.</p>
+      </div>
+      <div class="certificate-grid">
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/hackathon-101-arc.png" alt="Hackathon-101 by ARC participation certificate for Abhay Chauhan" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/hackathon-101-arc.png">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Certificate of Participation</p><h3>Hackathon-101 by ARC</h3><p>Participated in Hackathon-101 by ARC, a 24-hour innovation sprint held in August 2025. The event was made possible under the United Latino Students Association, with guidance from Faculty Facilitator Ms. Nisha Sharma and led by Mr. Shadval Yadav, CEO of ARC.</p><div class="tags"><span class="tag">Hackathon</span><span class="tag">24-Hour Innovation Sprint</span><span class="tag">August 2025</span><span class="tag">ARC</span></div><blockquote>“24 Hours. Countless ideas. one unforgettable journey.”</blockquote></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/python-bootcamp-letsupgrade.jpg" alt="Python Bootcamp completion certificate for Abhay Chauhan from LetsUpgrade" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/python-bootcamp-letsupgrade.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Certificate of Completion</p><h3>Python Bootcamp — LetsUpgrade</h3><p>Successfully completed the Python Bootcamp offered by LetsUpgrade in collaboration with ITM Edutech Training Pvt. Ltd., National Skill Development Corporation (NSDC), and GDG MAD.</p><div class="tags"><span class="tag">Python</span><span class="tag">Bootcamp</span><span class="tag">LetsUpgrade</span><span class="tag">NSDC</span><span class="tag">GDG MAD</span></div></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/html-css-bootcamp-letsupgrade.jpg" alt="HTML and CSS Bootcamp completion certificate for Abhay Chauhan from LetsUpgrade" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/html-css-bootcamp-letsupgrade.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Certificate of Completion</p><h3>HTML &amp; CSS Bootcamp — LetsUpgrade</h3><p>Successfully completed the HTML &amp; CSS Bootcamp offered by LetsUpgrade in collaboration with ITM Edutech Training Pvt. Ltd., National Skill Development Corporation (NSDC), and GDG MAD.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootcamp</span><span class="tag">LetsUpgrade</span><span class="tag">NSDC</span><span class="tag">GDG MAD</span></div></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/cbse-secondary-school-examination-2022.jpg" alt="CBSE Secondary School Examination 2022 marks statement and certificate for Abhay Chauhan" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/cbse-secondary-school-examination-2022.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Academic Certificate</p><h3>CBSE Secondary School Examination — 2022</h3><p>Marks Statement Cum Certificate for the CBSE Secondary School Examination, 2022.</p><div class="tags"><span class="tag">CBSE</span><span class="tag">Secondary School</span><span class="tag">2022</span></div></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/infosys-learning-full-stack-react.jpg" alt="Infosys course completion certificate for Learning Full Stack React awarded to Abhay Chauhan" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/infosys-learning-full-stack-react.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Course Completion</p><h3>Learning Full Stack React — Infosys</h3><p>Successfully completed the Learning Full Stack React course on February 19, 2026.</p><div class="tags"><span class="tag">React</span><span class="tag">Full Stack</span><span class="tag">Infosys</span></div></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/saylor-cs107-cpp-programming.jpg" alt="Saylor Academy CS107 C++ Programming certificate of achievement for Abhay Chauhan" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/saylor-cs107-cpp-programming.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Certificate of Achievement</p><h3>CS107: C++ Programming — Saylor Academy</h3><p>Certificate of achievement for CS107: C++ Programming, issued February 1, 2026. The certificate records 40 hours in the course and a grade of 85.00%.</p><div class="tags"><span class="tag">C++</span><span class="tag">Programming</span><span class="tag">40 Hours</span><span class="tag">85%</span></div></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/udemy-frontend-web-developer.jpg" alt="Udemy certificate of completion for Frontend Web Developer Modern HTML CSS JavaScript awarded to Abhay Chauhan" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/udemy-frontend-web-developer.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Certificate of Completion</p><h3>Frontend Web Developer — Modern HTML, CSS &amp; JavaScript</h3><p>Completed the frontend web development course covering modern HTML, CSS and JavaScript. The certificate shows a 12-hour total course length and completion date of April 1, 2026.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Frontend</span></div></div>
+        </article>
+        <article class="certificate-card reveal">
+          <div class="certificate-image-wrap"><img src="/src/assets/images/certificates/learn-foundation-indian-laws.jpg" alt="Learn Foundation Online certificate of completion for Indian Laws Know Your Rights awarded to Abhay Chauhan" loading="lazy"><button class="certificate-view" type="button" data-certificate="/src/assets/images/certificates/learn-foundation-indian-laws.jpg">View Certificate ↗</button></div>
+          <div class="certificate-content"><p class="certificate-type">Certificate of Completion</p><h3>Indian Laws: Know Your Rights — Learn Foundation Online</h3><p>Successfully completed the 5+ hour online course covering citizen rights, family law, women and child protection, and the new criminal law framework.</p><div class="tags"><span class="tag">Indian Law</span><span class="tag">5+ Hours</span><span class="tag">Civic Awareness</span></div></div>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="journey">
+      <div class="section-heading reveal"><p class="eyebrow">06 — Journey</p><h2>Learning by <span>building.</span></h2></div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section principles">
+      <div class="section-heading reveal"><p class="eyebrow">07 — Philosophy</p><h2>Simple principles. <span>Better experiences.</span></h2></div>
+      <div class="principle-grid">
+        <article class="principle reveal"><b>01</b><h3>Responsive First</h3><p>Interfaces should work beautifully across devices.</p></article>
+        <article class="principle reveal"><b>02</b><h3>Clean Code</h3><p>Readable, maintainable and structured code.</p></article>
+        <article class="principle reveal"><b>03</b><h3>User Focused</h3><p>Design decisions should improve usability.</p></article>
+        <article class="principle reveal"><b>04</b><h3>Performance</h3><p>Fast and efficient interfaces matter.</p></article>
+        <article class="principle reveal"><b>05</b><h3>Accessibility</h3><p>Interfaces should be usable by as many people as possible.</p></article>
+      </div>
+    </section>
+
+    <section class="section youtube-section" id="youtube">
+      <div class="section-heading reveal">
+        <p class="eyebrow">YouTube Channel</p>
+        <h2>Sports information & <span>content.</span></h2>
+        <p>
+          KsamDeal is my YouTube channel focused on sports information-related content,
+          where I share updates, information, and engaging sports content.
+        </p>
+      </div>
+
+      <div class="youtube-card reveal">
+        <div class="youtube-logo" aria-hidden="true">▶</div>
+        <div class="youtube-content">
+          <span class="youtube-label">KsamDeal • Sports Content</span>
+          <h3>KsamDeal</h3>
+          <p>
+            A sports-focused content channel created to share useful information,
+            updates, and engaging content with sports enthusiasts.
+          </p>
+          <div class="youtube-tags">
+            <span>Sports Information</span>
+            <span>Sports Content</span>
+            <span>YouTube</span>
+          </div>
+          <div class="youtube-actions">
+            <a class="btn btn-primary" href="#" aria-label="KsamDeal YouTube channel">
+              Visit YouTube Channel <span>↗</span>
+            </a>
+            <small>YouTube link can be added later.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section cv-section" id="cv">
+      <div class="section-heading reveal">
+        <p class="eyebrow">CV / Resume</p>
+        <h2>My professional <span>profile.</span></h2>
+        <p>My CV will be available here soon. The space is ready for the final PDF upload.</p>
+      </div>
+
+      <div class="cv-upload-box reveal">
+        <div class="cv-icon" aria-hidden="true">CV</div>
+        <div class="cv-upload-content">
+          <span class="cv-status">Resume PDF • Coming Soon</span>
+          <h3>Upload my CV here later</h3>
+          <p>
+            Replace the placeholder file with your final CV at
+            <code>src/assets/resume/resume.pdf</code>. The download button below will then work automatically.
+          </p>
+          <div class="cv-actions">
+            <a class="btn btn-primary cv-download-btn" href="/src/assets/resume/resume.pdf" download>
+              Download CV <span>↓</span>
+            </a>
+            <span class="cv-note">PDF format recommended</span>
+          </div>
+        </div>
+        <div class="cv-file-placeholder" aria-label="CV file placeholder">
+          <span>📄</span>
+          <strong>resume.pdf</strong>
+          <small>Add your final CV later</small>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section contact" id="contact">
+      <div class="contact-card reveal">
+        <div><p class="eyebrow">08 — Contact</p><h2>Let's build something <span>together.</span></h2><p>Have an idea, project or opportunity? Send a message and let's start a conversation.</p></div>
+        <form id="contactForm" novalidate>
+          <div class="form-row"><label>Name<input id="name" name="name" required autocomplete="name"></label><label>Email<input id="email" name="email" type="email" required autocomplete="email"></label></div>
+          <label>Message<textarea id="message" name="message" rows="5" required></textarea></label>
+          <div class="form-bottom"><button class="btn btn-primary" type="submit">Send Message <span>↗</span></button><p id="formStatus" role="status"></p></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><a class="brand" href="#home">Abhay<i>.</i></a><p>Frontend / Web Developer building thoughtful web experiences.</p></div>
+    <div class="footer-links"><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a><a href="https://github.com/Abh207" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+    <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+    <small>© 2026 Abhay Chauhan. Built with HTML, CSS & JavaScript.</small>
+  </footer>
+
+  <dialog id="certificateModal"><div class="certificate-modal-content"><button class="modal-close" id="certificateClose" aria-label="Close certificate">×</button><img id="certificateModalImage" src="/src/assets/images/certificates/hackathon-101-arc.png" alt="Full certificate preview"></div></dialog>
+  <dialog id="projectModal">
+    <div class="modal-content"><button class="modal-close" id="modalClose" aria-label="Close project details">×</button><div id="modalBody"></div></div>
+  </dialog>
+  <script type="module" src="/src/js/main.js"></script>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<script src="src/js/dynamic.js"></script>
+</body>
+</html>

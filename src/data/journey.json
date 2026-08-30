@@ -1,0 +1,74 @@
+[
+  {
+    "year": "01",
+    "title": "HTML / CSS Fundamentals",
+    "description": "Building a strong foundation in semantic markup, styling, layouts and responsive thinking.",
+    "technologies": [
+      "HTML5",
+      "CSS3"
+    ]
+  },
+  {
+    "year": "02",
+    "title": "JavaScript",
+    "description": "Learning browser logic, DOM manipulation, events and dynamic interfaces.",
+    "technologies": [
+      "JavaScript ES6+"
+    ]
+  },
+  {
+    "year": "03",
+    "title": "Responsive Web Development",
+    "description": "Practicing layouts that adapt intelligently from mobile to large desktop screens.",
+    "technologies": [
+      "Responsive Design",
+      "CSS"
+    ]
+  },
+  {
+    "year": "04",
+    "title": "Vite-based Projects",
+    "description": "Using a modern frontend workflow while keeping the implementation understandable.",
+    "technologies": [
+      "Vite",
+      "JavaScript"
+    ]
+  },
+  {
+    "year": "05",
+    "title": "Git / GitHub",
+    "description": "Developing version-control habits and keeping projects organized.",
+    "technologies": [
+      "Git",
+      "GitHub"
+    ]
+  },
+  {
+    "year": "06",
+    "title": "E-commerce Project Development",
+    "description": "Applying frontend skills to a larger interactive product experience with KSAM Deal.",
+    "technologies": [
+      "JavaScript",
+      "UI/UX"
+    ]
+  },
+  {
+    "year": "07",
+    "title": "Data Structures & Algorithms",
+    "description": "Strengthening problem-solving through arrays, recursion, binary search and complexity analysis.",
+    "technologies": [
+      "C++",
+      "DSA"
+    ]
+  },
+  {
+    "year": "08",
+    "title": "Continuous Learning",
+    "description": "Keep building, reviewing fundamentals and turning new concepts into working projects.",
+    "technologies": [
+      "Learn",
+      "Build",
+      "Improve"
+    ]
+  }
+]

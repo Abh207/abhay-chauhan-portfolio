@@ -1,0 +1,61 @@
+[
+  {
+    "category": "Frontend",
+    "items": [
+      [
+        "HTML5",
+        "Semantic structure and accessible markup."
+      ],
+      [
+        "CSS3",
+        "Responsive layouts, animations and visual systems."
+      ],
+      [
+        "JavaScript (ES6+)",
+        "Interactive browser experiences and dynamic UI."
+      ],
+      [
+        "Responsive Web Design",
+        "Interfaces adapted across screen sizes."
+      ]
+    ]
+  },
+  {
+    "category": "Tools & Development",
+    "items": [
+      [
+        "Vite",
+        "Fast modern frontend development workflow."
+      ],
+      [
+        "Git",
+        "Version control and iterative development."
+      ],
+      [
+        "GitHub",
+        "Repository and collaboration workflow."
+      ],
+      [
+        "VS Code",
+        "Everyday development environment."
+      ]
+    ]
+  },
+  {
+    "category": "Programming / Problem Solving",
+    "items": [
+      [
+        "C++",
+        "Programming practice and algorithm implementation."
+      ],
+      [
+        "Data Structures & Algorithms",
+        "Building stronger computational foundations."
+      ],
+      [
+        "Problem Solving",
+        "Breaking problems down into understandable steps."
+      ]
+    ]
+  }
+]

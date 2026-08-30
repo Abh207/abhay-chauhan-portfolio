@@ -1,0 +1,81 @@
+[
+  {
+    "title": "KsamDeal — E-commerce Platform",
+    "description": "KsamDeal is an e-commerce platform designed to make online shopping simple, convenient, and affordable. Discover a variety of quality products, explore great deals, and enjoy a smooth shopping experience—all in one place.",
+    "image": "",
+    "technologies": [
+      "Vite",
+      "HTML5",
+      "CSS3",
+      "JavaScript ES6+",
+      "Git",
+      "GitHub"
+    ],
+    "category": "ecommerce",
+    "github": "https://github.com/Abh207/KSAM-deal-ecommerce-website",
+    "liveDemo": "#",
+    "featured": true,
+    "status": "Under development",
+    "problem": "Build a simple, convenient and affordable online shopping experience where users can discover products and find great deals without unnecessary complexity.",
+    "solution": "A responsive frontend e-commerce experience with structured product data, category browsing, search, filtering and shopping-cart interactions.",
+    "features": [
+      "Quality product discovery",
+      "Product categories",
+      "Search",
+      "Filtering",
+      "Great deals and offers",
+      "Shopping cart",
+      "Responsive UI/UX",
+      "Accessibility-focused interface",
+      "Performance-conscious frontend"
+    ],
+    "process": "Plan the shopping information architecture, structure product data, build the responsive interface, add search/filter/cart interactions, and refine the experience across screen sizes.",
+    "challenges": "Keeping product discovery, filtering, dynamic rendering and cart behavior intuitive while maintaining a clean responsive interface.",
+    "future": [
+      "Authentication",
+      "Payments",
+      "Reviews",
+      "Wishlist",
+      "Orders",
+      "Admin dashboard"
+    ],
+    "tagline": "Shop Smart. Find Great Deals. Choose KsamDeal."
+  },
+  {
+    "title": "ShareSphere — Content Sharing Platform",
+    "description": "ShareSphere is a simple and user-friendly platform designed to make sharing and discovering content easier. Connect with others, share valuable resources, explore new ideas, and build a community where information can be shared effortlessly.",
+    "tagline": "Share ideas. Discover resources. Build a community.",
+    "image": "",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Git",
+      "GitHub"
+    ],
+    "category": "community",
+    "featured": true,
+    "status": "Under development",
+    "problem": "Make it easier for people to share useful content, discover new ideas and resources, and connect around information.",
+    "solution": "A simple, user-friendly platform focused on effortless content sharing, resource discovery, connection and community building.",
+    "features": [
+      "Content sharing",
+      "Resource discovery",
+      "Community interaction",
+      "Idea exploration",
+      "User-friendly interface",
+      "Responsive experience"
+    ],
+    "process": "Design a clear content-sharing flow, organize discovery around useful resources, build an approachable interface, and refine the experience for smooth community interaction.",
+    "challenges": "Keeping content sharing and discovery simple while creating an interface that encourages connection and community participation.",
+    "future": [
+      "User authentication",
+      "Profiles",
+      "Likes and comments",
+      "Bookmarks",
+      "Content categories",
+      "Search",
+      "Notifications"
+    ]
+  }
+]

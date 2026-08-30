@@ -1,0 +1,2 @@
+Replace this file with your final CV PDF named resume.pdf.
+Expected path: src/assets/resume/resume.pdf
