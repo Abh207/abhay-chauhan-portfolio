@@ -2,7 +2,7 @@
   {
     "title": "KsamDeal — E-commerce Platform",
     "description": "KsamDeal is an e-commerce platform designed to make online shopping simple, convenient, and affordable. Discover a variety of quality products, explore great deals, and enjoy a smooth shopping experience—all in one place.",
-    "image": "",
+    "image": "assets/projects/ksam-deal.png",
     "technologies": [
       "Vite",
       "HTML5",
@@ -45,7 +45,7 @@
     "title": "ShareSphere — Content Sharing Platform",
     "description": "ShareSphere is a simple and user-friendly platform designed to make sharing and discovering content easier. Connect with others, share valuable resources, explore new ideas, and build a community where information can be shared effortlessly.",
     "tagline": "Share ideas. Discover resources. Build a community.",
-    "image": "",
+    "image": "assets/projects/e-commerce.png",
     "technologies": [
       "HTML5",
       "CSS3",
