@@ -1,18 +1,25 @@
 /* =========================================================
-   IMPORT PROJECT DATA
-   projects.json is inside:
-   src/data/projects.json
+   IMPORT DATA
 ========================================================= */
 
-import projectData from "../data/projects.json";
+import projectsData from "../data/projects.json";
+import skillsData from "../data/skills.json";
+import journeyData from "../data/journey.json";
+
+
+/* =========================================================
+   IMPORT PROJECT IMAGES
+========================================================= */
+
+import ksamDealImage from "../assets/projects/ksam-deal.png";
+import ecommerceImage from "../assets/projects/e-commerce.png";
 
 
 /* =========================================================
    HELPERS
 ========================================================= */
 
-const $ = (selector) =>
-    document.querySelector(selector);
+const $ = (selector) => document.querySelector(selector);
 
 const $$ = (selector) =>
     [...document.querySelectorAll(selector)];
@@ -32,7 +39,7 @@ const certificateModalImage =
     $("#certificateModalImage");
 
 
-$$(".certificate-view").forEach(button => {
+$$(".certificate-view").forEach((button) => {
 
     button.addEventListener("click", () => {
 
@@ -61,13 +68,15 @@ certificateClose?.addEventListener(
 
 certificateModal?.addEventListener(
     "click",
-    event => {
+    (event) => {
 
         if (
             event.target ===
             event.currentTarget
         ) {
+
             event.currentTarget.close();
+
         }
 
     }
@@ -75,7 +84,39 @@ certificateModal?.addEventListener(
 
 
 /* =========================================================
-   PROJECTS
+   PROJECT DATA
+========================================================= */
+
+/*
+   projects.json is imported at the top.
+
+   IMPORTANT:
+   Do NOT use:
+
+   fetch("./src/data/projects.json")
+
+   Do NOT use:
+
+   let projects = [];
+
+   and then assign projects later.
+
+   We directly create the projects array here.
+*/
+
+const projects =
+    Array.isArray(projectsData)
+        ? projectsData
+        : Array.isArray(projectsData?.projects)
+            ? projectsData.projects
+            : [];
+
+
+let activeFilter = "All";
+
+
+/* =========================================================
+   PROJECT ELEMENTS
 ========================================================= */
 
 const projectGrid =
@@ -88,59 +129,104 @@ const search =
     $("#projectSearch");
 
 
+/* =========================================================
+   PROJECT IMAGE MAP
+========================================================= */
+
 /*
-   IMPORTANT:
+   Because project images are inside:
 
-   Do NOT write:
+   src/assets/projects/
 
-   let projects = [];
+   Vite needs to process them.
 
-   because projects is already imported above.
+   These imports are converted into the
+   correct hashed production URLs during build.
 */
 
-const projects =
-    Array.isArray(projectData)
-        ? projectData
-        : projectData.projects || [];
+const projectImages = {
 
+    "ksam-deal.png":
+        ksamDealImage,
 
-let activeFilter = "All";
+    "e-commerce.png":
+        ecommerceImage
+
+};
 
 
 /* =========================================================
-   PROJECT IMAGE PATH
+   GET PROJECT IMAGE
 ========================================================= */
 
-function getAssetPath(path) {
+function getProjectImage(path) {
 
     if (!path) {
         return "";
     }
 
     /*
-       Vite GitHub Pages base path
+       Get only the filename.
+
+       This allows all of these to work:
+
+       src/assets/projects/ksam-deal.png
+       assets/projects/ksam-deal.png
+       ./src/assets/projects/ksam-deal.png
+       ksam-deal.png
     */
 
-    return `${import.meta.env.BASE_URL}${path}`;
+    const filename =
+        path
+            .split("/")
+            .pop()
+            ?.trim();
+
+    if (
+        filename &&
+        projectImages[filename]
+    ) {
+
+        return projectImages[filename];
+
+    }
+
+    /*
+       Fallback for assets that may already
+       exist in public/.
+    */
+
+    const cleanPath =
+        path.replace(/^\.?\//, "");
+
+    return `${import.meta.env.BASE_URL}${cleanPath}`;
 
 }
 
 
 /* =========================================================
-   RENDER FILTERS
+   RENDER PROJECT FILTERS
 ========================================================= */
 
 function renderFilters() {
 
-    if (!filters) return;
+    if (!filters) {
+        return;
+    }
+
 
     const categories = [
         "All",
+
         ...new Set(
             projects
-                .map(project => project.category)
+                .map(
+                    (project) =>
+                        project.category
+                )
                 .filter(Boolean)
         ),
+
         "Frontend",
         "JavaScript"
     ];
@@ -148,40 +234,44 @@ function renderFilters() {
 
     filters.innerHTML =
         categories
-            .map(category => `
+            .map(
+                (category) => `
 
-                <button
-                    class="filter-btn ${
-                        category === activeFilter
-                            ? "active"
-                            : ""
-                    }"
-                    data-filter="${category}"
-                >
-                    ${category}
-                </button>
+                    <button
+                        class="filter-btn ${
+                            category === activeFilter
+                                ? "active"
+                                : ""
+                        }"
+                        data-filter="${category}"
+                    >
+                        ${category}
+                    </button>
 
-            `)
+                `
+            )
             .join("");
 
 
-    $$(".filter-btn").forEach(button => {
+    $$(".filter-btn").forEach(
+        (button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                activeFilter =
-                    button.dataset.filter;
+                    activeFilter =
+                        button.dataset.filter;
 
-                renderFilters();
+                    renderFilters();
 
-                renderProjects();
+                    renderProjects();
 
-            }
-        );
+                }
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -192,7 +282,9 @@ function renderFilters() {
 
 function renderProjects() {
 
-    if (!projectGrid) return;
+    if (!projectGrid) {
+        return;
+    }
 
 
     const query =
@@ -202,65 +294,77 @@ function renderProjects() {
 
 
     const list =
-        projects.filter(project => {
+        projects.filter(
+            (project) => {
 
-            const technologies =
-                project.technologies || [];
+                const technologies =
+                    project.technologies || [];
 
 
-            const matchesCategory =
-                activeFilter === "All" ||
+                /* -----------------------------------------
+                   CATEGORY FILTER
+                ----------------------------------------- */
 
-                project.category ===
-                    activeFilter ||
+                const matchesCategory =
+                    activeFilter === "All" ||
 
-                (
-                    activeFilter ===
-                    "Frontend" &&
+                    project.category ===
+                        activeFilter ||
 
-                    technologies.some(
-                        technology =>
-                            /html|css|javascript/i
-                                .test(technology)
-                    )
-                ) ||
+                    (
+                        activeFilter ===
+                        "Frontend" &&
 
-                (
-                    activeFilter ===
-                    "JavaScript" &&
+                        technologies.some(
+                            (technology) =>
+                                /html|css|javascript/i
+                                    .test(technology)
+                        )
+                    ) ||
 
-                    technologies.some(
-                        technology =>
-                            /javascript/i
-                                .test(technology)
-                    )
+                    (
+                        activeFilter ===
+                        "JavaScript" &&
+
+                        technologies.some(
+                            (technology) =>
+                                /javascript/i
+                                    .test(technology)
+                        )
+                    );
+
+
+                /* -----------------------------------------
+                   SEARCH
+                ----------------------------------------- */
+
+                const searchableText = `
+
+                    ${project.title || ""}
+
+                    ${project.description || ""}
+
+                    ${technologies.join(" ")}
+
+                    ${project.category || ""}
+
+                `
+                    .toLowerCase();
+
+
+                const matchesSearch =
+                    searchableText.includes(
+                        query
+                    );
+
+
+                return (
+                    matchesCategory &&
+                    matchesSearch
                 );
 
-
-            const searchableText = `
-
-                ${project.title || ""}
-
-                ${project.description || ""}
-
-                ${technologies.join(" ")}
-
-            `
-                .toLowerCase();
-
-
-            const matchesSearch =
-                searchableText.includes(
-                    query
-                );
-
-
-            return (
-                matchesCategory &&
-                matchesSearch
-            );
-
-        });
+            }
+        );
 
 
     /* =====================================================
@@ -288,152 +392,197 @@ function renderProjects() {
 
     projectGrid.innerHTML =
         list
-            .map(project => {
+            .map(
+                (project) => {
 
-                const projectIndex =
-                    projects.indexOf(
-                        project
-                    );
-
-
-                const image =
-                    getAssetPath(
-                        project.image
-                    );
+                    const projectIndex =
+                        projects.indexOf(
+                            project
+                        );
 
 
-                return `
+                    const image =
+                        getProjectImage(
+                            project.image
+                        );
 
-                    <article
-                        class="project-card reveal visible"
-                    >
 
-                        <div
-                            class="project-preview"
+                    return `
+
+                        <article
+                            class="project-card reveal visible"
                         >
 
-                            ${
-                                image
-                                    ? `
-                                        <img
-                                            src="${image}"
-                                            alt="${project.title}"
-                                            class="project-preview-image"
-                                            loading="lazy"
-                                        >
-                                    `
-                                    : `
-                                        <div
-                                            class="project-preview-placeholder"
-                                        >
-                                            <span>
-                                                ${project.title}
-                                            </span>
-                                        </div>
-                                    `
-                            }
-
-                        </div>
-
-
-                        <div
-                            class="project-content"
-                        >
-
-                            <span
-                                class="status"
-                            >
-                                ${
-                                    project.status ||
-                                    "Project"
-                                }
-                            </span>
-
-
-                            <h3>
-                                ${project.title}
-                            </h3>
-
-
-                            <p>
-                                ${project.description}
-                            </p>
-
+                            <!-- PROJECT IMAGE -->
 
                             <div
-                                class="tags"
+                                class="project-preview"
                             >
 
                                 ${
-                                    (project.technologies || [])
-                                        .map(
-                                            technology => `
-                                                <span
-                                                    class="tag"
-                                                >
-                                                    ${technology}
+                                    image
+                                        ? `
+
+                                            <img
+                                                src="${image}"
+                                                alt="${project.title || "Project image"}"
+                                                class="project-preview-image"
+                                                loading="lazy"
+                                            >
+
+                                        `
+                                        : `
+
+                                            <div
+                                                class="project-preview-placeholder"
+                                            >
+
+                                                <span>
+                                                    ${
+                                                        project.title ||
+                                                        "Project"
+                                                    }
                                                 </span>
-                                            `
-                                        )
-                                        .join("")
+
+                                            </div>
+
+                                        `
                                 }
 
                             </div>
 
+
+                            <!-- PROJECT CONTENT -->
 
                             <div
-                                class="project-actions"
+                                class="project-content"
                             >
 
-                                ${
-                                    project.github
-                                        ? `
-                                            <a
-                                                class="small-btn"
-                                                href="${project.github}"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                GitHub ↗
-                                            </a>
-                                        `
-                                        : ""
-                                }
-
-
-                                ${
-                                    project.liveDemo &&
-                                    project.liveDemo !== "#"
-                                        ? `
-                                            <a
-                                                class="small-btn"
-                                                href="${project.liveDemo}"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                Live Demo ↗
-                                            </a>
-                                        `
-                                        : ""
-                                }
-
-
-                                <button
-                                    class="small-btn details"
-                                    data-index="${projectIndex}"
+                                <span
+                                    class="status"
                                 >
-                                    View Details
-                                </button>
+                                    ${
+                                        project.status ||
+                                        "Project"
+                                    }
+                                </span>
+
+
+                                <h3>
+                                    ${
+                                        project.title ||
+                                        "Untitled Project"
+                                    }
+                                </h3>
+
+
+                                ${
+                                    project.tagline
+                                        ? `
+                                            <p class="project-tagline">
+                                                ${project.tagline}
+                                            </p>
+                                        `
+                                        : ""
+                                }
+
+
+                                <p>
+                                    ${
+                                        project.description ||
+                                        ""
+                                    }
+                                </p>
+
+
+                                <!-- TECHNOLOGIES -->
+
+                                <div
+                                    class="tags"
+                                >
+
+                                    ${
+                                        (
+                                            project.technologies ||
+                                            []
+                                        )
+                                            .map(
+                                                (technology) => `
+
+                                                    <span
+                                                        class="tag"
+                                                    >
+                                                        ${technology}
+                                                    </span>
+
+                                                `
+                                            )
+                                            .join("")
+                                    }
+
+                                </div>
+
+
+                                <!-- ACTIONS -->
+
+                                <div
+                                    class="project-actions"
+                                >
+
+                                    ${
+                                        project.github
+                                            ? `
+
+                                                <a
+                                                    class="small-btn"
+                                                    href="${project.github}"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    GitHub ↗
+                                                </a>
+
+                                            `
+                                            : ""
+                                    }
+
+
+                                    ${
+                                        project.liveDemo &&
+                                        project.liveDemo !== "#"
+                                            ? `
+
+                                                <a
+                                                    class="small-btn"
+                                                    href="${project.liveDemo}"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    Live Demo ↗
+                                                </a>
+
+                                            `
+                                            : ""
+                                    }
+
+
+                                    <button
+                                        class="small-btn details"
+                                        data-index="${projectIndex}"
+                                    >
+                                        View Details
+                                    </button>
+
+                                </div>
 
                             </div>
 
-                        </div>
+                        </article>
 
-                    </article>
+                    `;
 
-                `;
-
-            })
+                }
+            )
             .join("");
 
 
@@ -441,25 +590,28 @@ function renderProjects() {
        DETAILS BUTTONS
     ===================================================== */
 
-    $$(".details").forEach(button => {
+    $$(".details").forEach(
+        (button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const index =
-                    Number(
-                        button.dataset.index
+                    const index =
+                        Number(
+                            button.dataset.index
+                        );
+
+
+                    openModal(
+                        projects[index]
                     );
 
-                openModal(
-                    projects[index]
-                );
+                }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 }
 
@@ -477,8 +629,14 @@ function openModal(project) {
         $("#modalBody");
 
 
-    if (!modal || !modalBody) {
+    if (
+        !modal ||
+        !modalBody ||
+        !project
+    ) {
+
         return;
+
     }
 
 
@@ -490,18 +648,20 @@ function openModal(project) {
 
 
         <h2>
-            ${project.title}
+            ${project.title || ""}
         </h2>
 
 
         ${
             project.tagline
                 ? `
+
                     <p>
                         <strong>
                             ${project.tagline}
                         </strong>
                     </p>
+
                 `
                 : ""
         }
@@ -515,10 +675,15 @@ function openModal(project) {
         ${
             project.problem
                 ? `
-                    <h3>Problem</h3>
+
+                    <h3>
+                        Problem
+                    </h3>
+
                     <p>
                         ${project.problem}
                     </p>
+
                 `
                 : ""
         }
@@ -527,10 +692,15 @@ function openModal(project) {
         ${
             project.solution
                 ? `
-                    <h3>Solution</h3>
+
+                    <h3>
+                        Solution
+                    </h3>
+
                     <p>
                         ${project.solution}
                     </p>
+
                 `
                 : ""
         }
@@ -539,16 +709,27 @@ function openModal(project) {
         ${
             project.features?.length
                 ? `
-                    <h3>Features</h3>
+
+                    <h3>
+                        Features
+                    </h3>
 
                     <ul>
+
                         ${project.features
                             .map(
-                                feature =>
-                                    `<li>${feature}</li>`
+                                (feature) => `
+
+                                    <li>
+                                        ${feature}
+                                    </li>
+
+                                `
                             )
                             .join("")}
+
                     </ul>
+
                 `
                 : ""
         }
@@ -561,18 +742,21 @@ function openModal(project) {
 
         <div class="tags">
 
-            ${(project.technologies || [])
-                .map(
-                    technology =>
+            ${
+                (project.technologies || [])
+                    .map(
+                        (technology) => `
+
+                            <span
+                                class="tag"
+                            >
+                                ${technology}
+                            </span>
+
                         `
-                        <span
-                            class="tag"
-                        >
-                            ${technology}
-                        </span>
-                        `
-                )
-                .join("")}
+                    )
+                    .join("")
+            }
 
         </div>
 
@@ -580,6 +764,7 @@ function openModal(project) {
         ${
             project.process
                 ? `
+
                     <h3>
                         Development process
                     </h3>
@@ -587,6 +772,7 @@ function openModal(project) {
                     <p>
                         ${project.process}
                     </p>
+
                 `
                 : ""
         }
@@ -595,6 +781,7 @@ function openModal(project) {
         ${
             project.challenges
                 ? `
+
                     <h3>
                         Challenges
                     </h3>
@@ -602,6 +789,7 @@ function openModal(project) {
                     <p>
                         ${project.challenges}
                     </p>
+
                 `
                 : ""
         }
@@ -610,18 +798,27 @@ function openModal(project) {
         ${
             project.future?.length
                 ? `
+
                     <h3>
                         Future improvements
                     </h3>
 
                     <ul>
+
                         ${project.future
                             .map(
-                                item =>
-                                    `<li>${item}</li>`
+                                (item) => `
+
+                                    <li>
+                                        ${item}
+                                    </li>
+
+                                `
                             )
                             .join("")}
+
                     </ul>
+
                 `
                 : ""
         }
@@ -634,6 +831,7 @@ function openModal(project) {
             ${
                 project.github
                     ? `
+
                         <a
                             class="small-btn"
                             href="${project.github}"
@@ -642,6 +840,7 @@ function openModal(project) {
                         >
                             GitHub ↗
                         </a>
+
                     `
                     : ""
             }
@@ -651,6 +850,7 @@ function openModal(project) {
                 project.liveDemo &&
                 project.liveDemo !== "#"
                     ? `
+
                         <a
                             class="small-btn"
                             href="${project.liveDemo}"
@@ -659,6 +859,7 @@ function openModal(project) {
                         >
                             Live Demo ↗
                         </a>
+
                     `
                     : ""
             }
@@ -674,7 +875,7 @@ function openModal(project) {
 
 
 /* =========================================================
-   MODAL CLOSE
+   PROJECT MODAL CLOSE
 ========================================================= */
 
 const modalClose =
@@ -692,7 +893,7 @@ modalClose?.addEventListener(
 
 projectModal?.addEventListener(
     "click",
-    event => {
+    (event) => {
 
         if (
             event.target ===
@@ -708,7 +909,7 @@ projectModal?.addEventListener(
 
 
 /* =========================================================
-   SEARCH
+   PROJECT SEARCH
 ========================================================= */
 
 search?.addEventListener(
@@ -718,96 +919,54 @@ search?.addEventListener(
 
 
 /* =========================================================
-   LOAD OTHER JSON DATA
-========================================================= */
-
-async function loadJSON(path) {
-
-    const response =
-        await fetch(
-            `${import.meta.env.BASE_URL}${path}`
-        );
-
-
-    if (!response.ok) {
-
-        throw new Error(
-            `Could not load ${path}`
-        );
-
-    }
-
-
-    return response.json();
-
-}
-
-
-/* =========================================================
    INITIALIZE SKILLS + JOURNEY
 ========================================================= */
 
-async function initData() {
+function initData() {
 
     try {
 
-        /* ================================================
+        /*
            PROJECTS
-        ================================================= */
+
+           No assignment is required here.
+
+           projects already contains projectsData.
+        */
 
         renderFilters();
 
         renderProjects();
 
 
-        /* ================================================
+        /* -----------------------------------------
            SKILLS
-        ================================================= */
-
-        const skills =
-            await loadJSON(
-                "src/data/skills.json"
-            );
-
+        ----------------------------------------- */
 
         const skillCategories =
             $("#skillCategories");
 
 
-        if (
-            skillCategories &&
-            Array.isArray(skills)
-        ) {
+        if (skillCategories) {
 
             skillCategories.innerHTML =
-                skills
-                    .map(skill => `
+                skillsData
+                    .map(
+                        (skill) => `
 
-                        <div
-                            class="skill-category reveal"
-                        >
+                            <div
+                                class="skill-category reveal"
+                            >
 
-                            <h3>
-                                ${skill.category}
-                            </h3>
+                                <h3>
+                                    ${skill.category}
+                                </h3>
 
 
-                            ${
-                                (skill.items || [])
-                                    .map(
-                                        item => {
-
-                                            const name =
-                                                Array.isArray(item)
-                                                    ? item[0]
-                                                    : item.name;
-
-                                            const description =
-                                                Array.isArray(item)
-                                                    ? item[1]
-                                                    : item.description;
-
-                                            return `
+                                ${
+                                    (skill.items || [])
+                                        .map(
+                                            ([name, description]) => `
 
                                                 <div
                                                     class="skill-card"
@@ -818,102 +977,94 @@ async function initData() {
                                                     </b>
 
                                                     <span>
-                                                        ${description || ""}
+                                                        ${description}
                                                     </span>
 
                                                 </div>
 
-                                            `;
-
-                                        }
-                                    )
-                                    .join("")
-                            }
-
-                        </div>
-
-                    `)
-                    .join("");
-
-        }
-
-
-        /* ================================================
-           JOURNEY
-        ================================================= */
-
-        const journey =
-            await loadJSON(
-                "src/data/journey.json"
-            );
-
-
-        const timeline =
-            $("#timeline");
-
-
-        if (
-            timeline &&
-            Array.isArray(journey)
-        ) {
-
-            timeline.innerHTML =
-                journey
-                    .map(item => `
-
-                        <article
-                            class="timeline-item reveal"
-                        >
-
-                            <span
-                                class="year"
-                            >
-                                ${item.year}
-                            </span>
-
-
-                            <h3>
-                                ${item.title}
-                            </h3>
-
-
-                            <p>
-                                ${item.description}
-                            </p>
-
-
-                            <div
-                                class="tags"
-                            >
-
-                                ${
-                                    (item.technologies || [])
-                                        .map(
-                                            technology =>
-                                                `
-                                                <span
-                                                    class="tag"
-                                                >
-                                                    ${technology}
-                                                </span>
-                                                `
+                                            `
                                         )
                                         .join("")
                                 }
 
                             </div>
 
-                        </article>
-
-                    `)
+                        `
+                    )
                     .join("");
 
         }
 
 
-        /* ================================================
-           REVEAL ELEMENTS
-        ================================================= */
+        /* -----------------------------------------
+           JOURNEY
+        ----------------------------------------- */
+
+        const timeline =
+            $("#timeline");
+
+
+        if (timeline) {
+
+            timeline.innerHTML =
+                journeyData
+                    .map(
+                        (journey) => `
+
+                            <article
+                                class="timeline-item reveal"
+                            >
+
+                                <span
+                                    class="year"
+                                >
+                                    ${journey.year}
+                                </span>
+
+
+                                <h3>
+                                    ${journey.title}
+                                </h3>
+
+
+                                <p>
+                                    ${journey.description}
+                                </p>
+
+
+                                <div
+                                    class="tags"
+                                >
+
+                                    ${
+                                        (
+                                            journey.technologies ||
+                                            []
+                                        )
+                                            .map(
+                                                (technology) => `
+
+                                                    <span
+                                                        class="tag"
+                                                    >
+                                                        ${technology}
+                                                    </span>
+
+                                                `
+                                            )
+                                            .join("")
+                                    }
+
+                                </div>
+
+                            </article>
+
+                        `
+                    )
+                    .join("");
+
+        }
+
 
         observeReveals();
 
@@ -921,7 +1072,7 @@ async function initData() {
     } catch (error) {
 
         console.error(
-            "Portfolio data error:",
+            "Error initializing portfolio:",
             error
         );
 
@@ -938,10 +1089,10 @@ function observeReveals() {
 
     const observer =
         new IntersectionObserver(
-            entries => {
+            (entries) => {
 
                 entries.forEach(
-                    entry => {
+                    (entry) => {
 
                         if (
                             entry.isIntersecting
@@ -950,6 +1101,7 @@ function observeReveals() {
                             entry.target
                                 .classList
                                 .add("visible");
+
 
                             observer.unobserve(
                                 entry.target
@@ -968,7 +1120,7 @@ function observeReveals() {
 
 
     $$(".reveal").forEach(
-        element =>
+        (element) =>
             observer.observe(element)
     );
 
@@ -1022,7 +1174,7 @@ menu?.addEventListener(
 
         menu.setAttribute(
             "aria-expanded",
-            isOpen
+            String(Boolean(isOpen))
         );
 
     }
@@ -1030,7 +1182,7 @@ menu?.addEventListener(
 
 
 $$(".nav-links a").forEach(
-    link => {
+    (link) => {
 
         link.addEventListener(
             "click",
@@ -1053,6 +1205,7 @@ $$(".nav-links a").forEach(
 
 const savedTheme =
     localStorage.getItem("theme");
+
 
 const systemLight =
     window.matchMedia(
@@ -1101,26 +1254,28 @@ $("#themeToggle")?.addEventListener(
 const sections =
     $$("main section[id]");
 
+
 const navItems =
     $$(".nav-links a");
 
 
 const sectionObserver =
     new IntersectionObserver(
-        entries => {
+        (entries) => {
 
             entries.forEach(
-                entry => {
+                (entry) => {
 
                     if (
                         entry.isIntersecting
                     ) {
 
                         navItems.forEach(
-                            link => {
+                            (link) => {
 
                                 link.classList.toggle(
                                     "active",
+
                                     link.getAttribute(
                                         "href"
                                     ) ===
@@ -1144,7 +1299,7 @@ const sectionObserver =
 
 
 sections.forEach(
-    section =>
+    (section) =>
         sectionObserver.observe(section)
 );
 
@@ -1170,28 +1325,19 @@ $("#backTop")?.addEventListener(
    CONTACT FORM
 ========================================================= */
 
-const contactForm =
-    $("#contactForm");
+/*
+   IMPORTANT:
 
+   Do NOT handle contact form submission here.
 
-contactForm?.addEventListener(
-    "submit",
-    event => {
+   contact.js handles Formspree.
 
-        /*
-           contact.js handles the actual
-           Formspree submission.
+   Therefore there is NO:
 
-           Therefore main.js should NOT
-           prevent the submission here.
-        */
+   event.preventDefault()
 
-        console.log(
-            "Contact form submitted"
-        );
-
-    }
-);
+   here.
+*/
 
 
 /* =========================================================
