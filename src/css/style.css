@@ -40,7 +40,10 @@
 .skill-card:hover{transform:translateY(-4px);border-color:var(--accent)}
 .skill-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line);font-size:.75rem;font-weight:850;color:var(--accent);margin-bottom:18px}
 .skill-card h3{margin:0 0 8px;font-size:1rem}
-.skill-card p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.65}
+.skill-card p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.65} 
+
+
+
 
 .profile-photo-wrap{width:150px;height:150px;margin:0 0 24px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 12px 40px rgba(0,0,0,.12)} 
 
