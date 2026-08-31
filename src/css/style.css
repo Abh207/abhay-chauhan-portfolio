@@ -129,6 +129,9 @@
   .event-highlights{grid-template-columns:1fr}
   .event-visual{min-height:200px}
 }
+nav a:hover{
+    color: greenyellow;
+}
 
 .event-photo-gallery{align-items:stretch;justify-content:flex-start;gap:12px;overflow:hidden}
 .event-main-photo{height:245px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
